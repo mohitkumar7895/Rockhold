@@ -1,0 +1,106 @@
+[
+  {
+    "page": 1,
+    "text": "",
+    "page_image": "extracted_assets/pages/page_1.png",
+    "images": [
+      {
+        "filename": "extracted_img_p1_0_14.jpeg",
+        "width": 1650,
+        "height": 2200,
+        "ext": "jpeg"
+      }
+    ]
+  },
+  {
+    "page": 2,
+    "text": "",
+    "page_image": "extracted_assets/pages/page_2.png",
+    "images": [
+      {
+        "filename": "extracted_img_p2_0_22.jpeg",
+        "width": 1651,
+        "height": 2201,
+        "ext": "jpeg"
+      }
+    ]
+  },
+  {
+    "page": 3,
+    "text": "",
+    "page_image": "extracted_assets/pages/page_3.png",
+    "images": [
+      {
+        "filename": "extracted_img_p3_0_28.jpeg",
+        "width": 1651,
+        "height": 2201,
+        "ext": "jpeg"
+      }
+    ]
+  },
+  {
+    "page": 4,
+    "text": "",
+    "page_image": "extracted_assets/pages/page_4.png",
+    "images": [
+      {
+        "filename": "extracted_img_p4_0_34.jpeg",
+        "width": 1651,
+        "height": 2201,
+        "ext": "jpeg"
+      }
+    ]
+  },
+  {
+    "page": 5,
+    "text": "",
+    "page_image": "extracted_assets/pages/page_5.png",
+    "images": [
+      {
+        "filename": "extracted_img_p5_0_40.jpeg",
+        "width": 1651,
+        "height": 2201,
+        "ext": "jpeg"
+      }
+    ]
+  },
+  {
+    "page": 6,
+    "text": "",
+    "page_image": "extracted_assets/pages/page_6.png",
+    "images": [
+      {
+        "filename": "extracted_img_p6_0_46.jpeg",
+        "width": 1651,
+        "height": 2201,
+        "ext": "jpeg"
+      }
+    ]
+  },
+  {
+    "page": 7,
+    "text": "",
+    "page_image": "extracted_assets/pages/page_7.png",
+    "images": [
+      {
+        "filename": "extracted_img_p7_0_52.jpeg",
+        "width": 1651,
+        "height": 2201,
+        "ext": "jpeg"
+      }
+    ]
+  },
+  {
+    "page": 8,
+    "text": "",
+    "page_image": "extracted_assets/pages/page_8.png",
+    "images": [
+      {
+        "filename": "extracted_img_p8_0_58.jpeg",
+        "width": 1650,
+        "height": 2200,
+        "ext": "jpeg"
+      }
+    ]
+  }
+]

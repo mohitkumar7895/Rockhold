@@ -1,0 +1,73 @@
+import * as React from 'react';
+import { cn } from '@/lib/utils';
+
+export interface InputProps
+  extends React.InputHTMLAttributes<HTMLInputElement> {
+  error?: string;
+  label?: string;
+}
+
+export const Input = React.forwardRef<HTMLInputElement, InputProps>(
+  ({ className, type, error, label, id, ...props }, ref) => {
+    return (
+      <div className="w-full">
+        {label && (
+          <label
+            htmlFor={id}
+            className="block text-xs font-semibold uppercase tracking-wider text-slate-700 mb-1.5"
+          >
+            {label}
+          </label>
+        )}
+        <input
+          type={type}
+          id={id}
+          className={cn(
+            'flex h-11 w-full rounded-lg border border-slate-300 bg-white px-3.5 py-2 text-sm text-slate-900 transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-slate-400 focus:border-brand-teal focus:outline-none focus:ring-2 focus:ring-brand-teal/20 disabled:cursor-not-allowed disabled:opacity-50',
+            error && 'border-red-500 focus:border-red-500 focus:ring-red-200',
+            className
+          )}
+          ref={ref}
+          {...props}
+        />
+        {error && <p className="mt-1 text-xs text-red-500">{error}</p>}
+      </div>
+    );
+  }
+);
+Input.displayName = 'Input';
+
+export interface TextareaProps
+  extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
+  error?: string;
+  label?: string;
+}
+
+export const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
+  ({ className, error, label, id, ...props }, ref) => {
+    return (
+      <div className="w-full">
+        {label && (
+          <label
+            htmlFor={id}
+            className="block text-xs font-semibold uppercase tracking-wider text-slate-700 mb-1.5"
+          >
+            {label}
+          </label>
+        )}
+        <textarea
+          id={id}
+          className={cn(
+            'flex min-h-[100px] w-full rounded-lg border border-slate-300 bg-white px-3.5 py-2 text-sm text-slate-900 transition-colors placeholder:text-slate-400 focus:border-brand-teal focus:outline-none focus:ring-2 focus:ring-brand-teal/20 disabled:cursor-not-allowed disabled:opacity-50',
+            error && 'border-red-500 focus:border-red-500 focus:ring-red-200',
+            className
+          )}
+          ref={ref}
+          {...props}
+        />
+        {error && <p className="mt-1 text-xs text-red-500">{error}</p>}
+      </div>
+    );
+  }
+);
+Textarea.displayName = 'Textarea';

@@ -1,0 +1,19 @@
+import React from 'react';
+import { Navbar } from '@/components/layout/Navbar';
+import { Footer } from '@/components/layout/Footer';
+import { WhatsAppFloating } from '@/components/layout/WhatsAppFloating';
+
+export default function WebsiteLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <div className="min-h-screen flex flex-col justify-between">
+      <Navbar />
+      <main className="flex-1">{children}</main>
+      <WhatsAppFloating />
+      <Footer />
+    </div>
+  );
+}
