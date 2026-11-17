@@ -3,7 +3,8 @@ const http = require('http');
 
 async function request(urlPath, options = {}) {
   return new Promise((resolve, reject) => {
-    const url = new URL(urlPath, 'http://127.0.0.1:3000');
+    const port = process.env.PORT || 3001;
+    const url = new URL(urlPath, `http://127.0.0.1:${port}`);
     const reqOptions = {
       hostname: url.hostname,
       port: url.port,

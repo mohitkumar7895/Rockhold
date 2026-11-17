@@ -49,10 +49,10 @@ module.exports = {
         },
       },
       fontFamily: {
-        sans: ['var(--font-sans)', 'system-ui', 'sans-serif'],
-        display: ['var(--font-heading)', 'sans-serif'],
-        heading: ['var(--font-heading)', 'sans-serif'],
-        mono: ['var(--font-mono)', 'monospace'],
+        sans: ['"Plus Jakarta Sans"', 'var(--font-sans)', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+        display: ['"Outfit"', 'var(--font-heading)', 'system-ui', '-apple-system', 'sans-serif'],
+        heading: ['"Outfit"', 'var(--font-heading)', 'system-ui', '-apple-system', 'sans-serif'],
+        mono: ['"JetBrains Mono"', 'var(--font-mono)', 'ui-monospace', 'monospace'],
       },
       boxShadow: {
         'industrial': '0 10px 30px -5px rgba(16, 54, 91, 0.12), 0 4px 6px -2px rgba(16, 54, 91, 0.05)',
