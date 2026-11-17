@@ -1,32 +1,10 @@
 import type { Metadata } from 'next';
-import { Plus_Jakarta_Sans, Outfit, JetBrains_Mono } from 'next/font/google';
 import './globals.css';
 import { ToastProvider } from '@/components/ui/toast';
 import { AuthProvider } from '@/context/AuthContext';
 import { WebsiteProvider } from '@/context/WebsiteContext';
 import { query } from '@/lib/db';
 import { Category } from '@/types';
-
-const sansFont = Plus_Jakarta_Sans({
-  subsets: ['latin'],
-  weight: ['400', '500', '600', '700', '800'],
-  variable: '--font-sans',
-  display: 'swap',
-});
-
-const headingFont = Outfit({
-  subsets: ['latin'],
-  weight: ['600', '700', '800', '900'],
-  variable: '--font-heading',
-  display: 'swap',
-});
-
-const monoFont = JetBrains_Mono({
-  subsets: ['latin'],
-  weight: ['400', '500', '700'],
-  variable: '--font-mono',
-  display: 'swap',
-});
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://rockhold.in'),
@@ -122,7 +100,15 @@ export default async function RootLayout({
   const { settings, categories } = await getInitialWebsiteData();
 
   return (
-    <html lang="en" className={`${sansFont.variable} ${headingFont.variable} ${monoFont.variable}`}>
+    <html lang="en">
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Outfit:wght@600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+          rel="stylesheet"
+        />
+      </head>
       <body className="min-h-screen flex flex-col font-sans antialiased bg-white text-slate-800 selection:bg-brand-teal selection:text-white">
         <AuthProvider>
           <WebsiteProvider initialSettings={settings} initialCategories={categories}>
