@@ -96,7 +96,7 @@ export function AdhesiveCalculator() {
   const waLink = `https://wa.me/919001667917?text=${waMessage}`;
 
   return (
-    <section id="calculator" className="py-20 bg-slate-900 text-white relative overflow-hidden scroll-mt-20">
+    <section id="calculator" className="py-14 sm:py-20 bg-slate-900 text-white relative overflow-hidden scroll-mt-20">
       {/* Background blueprint grid */}
       <div className="absolute inset-0 blueprint-pattern opacity-15 pointer-events-none" />
       <div className="absolute top-1/2 -left-40 w-96 h-96 bg-brand-teal/15 rounded-full blur-3xl pointer-events-none" />
@@ -104,28 +104,28 @@ export function AdhesiveCalculator() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-14">
+        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-teal/15 text-brand-teal border border-brand-teal/30 text-xs font-mono uppercase tracking-widest mb-3">
             <Calculator className="w-3.5 h-3.5" />
             <span>Interactive Engineering Tool</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight font-display">
+          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black tracking-tight font-display">
             Tile Adhesive & Material Estimator
           </h2>
-          <p className="mt-3 text-slate-300 text-sm sm:text-base leading-relaxed">
+          <p className="mt-3 text-slate-300 text-xs sm:text-base leading-relaxed">
             Select your tile substrate and floor or wall area to instantly calculate the exact formulation, quantity of 20kg bags, and bond strength required for zero failure.
           </p>
         </div>
 
         {/* Calculator Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-start">
           {/* Left Form: Substrate & Area Sliders (7 cols) */}
-          <div className="lg:col-span-7 bg-white/5 border border-white/10 rounded-3xl p-6 sm:p-8 backdrop-blur-xl space-y-6">
+          <div className="lg:col-span-7 bg-white/5 border border-white/10 rounded-3xl p-4 sm:p-6 lg:p-8 backdrop-blur-xl space-y-5 sm:space-y-6">
             <div>
               <label className="block text-xs font-mono font-bold text-brand-teal uppercase tracking-wider mb-3">
                 1. Select Tile Type / Application Substrate
               </label>
-              <div className="space-y-2.5">
+              <div className="space-y-2 sm:space-y-2.5">
                 {SUBSTRATE_OPTIONS.map((sub) => {
                   const isSelected = sub.id === selectedSubstrateId;
                   return (
@@ -133,7 +133,7 @@ export function AdhesiveCalculator() {
                       key={sub.id}
                       type="button"
                       onClick={() => setSelectedSubstrateId(sub.id)}
-                      className={`w-full text-left p-3.5 rounded-2xl border transition-transform duration-75 active:scale-[0.98] cursor-pointer flex items-start gap-3.5 ${
+                      className={`w-full text-left p-3 sm:p-3.5 rounded-2xl border transition-transform duration-75 active:scale-[0.98] cursor-pointer flex items-start gap-3 sm:gap-3.5 ${
                         isSelected
                           ? 'bg-brand-teal/20 border-brand-teal text-white shadow-industrial-glow'
                           : 'bg-white/5 border-white/10 text-slate-300 hover:bg-white/10 hover:border-white/20'
@@ -146,15 +146,15 @@ export function AdhesiveCalculator() {
                       >
                         {isSelected && <CheckCircle2 className="w-4 h-4 text-white" />}
                       </div>
-                      <div className="flex-1">
-                        <div className="font-bold text-sm sm:text-base leading-snug">
+                      <div className="flex-1 min-w-0">
+                        <div className="font-bold text-xs sm:text-base leading-snug">
                           {sub.name}
                         </div>
-                        <div className="text-xs text-slate-400 mt-0.5 line-clamp-1">
+                        <div className="text-[11px] sm:text-xs text-slate-400 mt-0.5 line-clamp-1">
                           {sub.description}
                         </div>
                       </div>
-                      <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-white/10 text-brand-teal shrink-0 hidden sm:inline-block">
+                      <span className="text-[9px] sm:text-[10px] font-mono px-2 py-0.5 rounded bg-white/10 text-brand-teal shrink-0 hidden sm:inline-block">
                         {sub.adhesiveType.split(' ')[0]} {sub.adhesiveType.split(' ')[1]}
                       </span>
                     </button>
@@ -169,7 +169,7 @@ export function AdhesiveCalculator() {
                 <label className="text-xs font-mono font-bold text-brand-teal uppercase tracking-wider">
                   2. Project Surface Area (Sq. Ft.)
                 </label>
-                <div className="font-mono font-black text-xl text-white">
+                <div className="font-mono font-black text-lg sm:text-xl text-white">
                   {areaSqFt.toLocaleString()} <span className="text-xs text-slate-400 font-normal">sq.ft</span>
                 </div>
               </div>
@@ -184,10 +184,10 @@ export function AdhesiveCalculator() {
                 className="w-full h-2 bg-white/20 rounded-lg appearance-none cursor-pointer accent-brand-teal"
               />
 
-              <div className="flex justify-between text-[11px] text-slate-400 font-mono mt-1">
-                <span>50 sq.ft (Small Bathroom)</span>
-                <span>500 sq.ft (Living Hall)</span>
-                <span>3,000 sq.ft (Full Floor)</span>
+              <div className="flex justify-between text-[10px] sm:text-[11px] text-slate-400 font-mono mt-1">
+                <span>50 sq.ft</span>
+                <span>500 sq.ft</span>
+                <span>3,000 sq.ft</span>
               </div>
             </div>
 
@@ -196,19 +196,19 @@ export function AdhesiveCalculator() {
               <label className="block text-xs font-mono font-bold text-brand-teal uppercase tracking-wider mb-2">
                 3. Application Bed Thickness
               </label>
-              <div className="grid grid-cols-3 gap-2">
+              <div className="grid grid-cols-3 gap-1.5 sm:gap-2">
                 {[3, 4.5, 6].map((mm) => (
                   <button
                     key={mm}
                     type="button"
                     onClick={() => setThicknessMm(mm)}
-                    className={`py-2 px-3 rounded-xl border text-xs font-mono font-bold transition-all ${
+                    className={`py-2 px-1 sm:px-3 rounded-xl border text-[10px] sm:text-xs font-mono font-bold text-center transition-all ${
                       thicknessMm === mm
                         ? 'bg-brand-teal text-white border-brand-teal shadow-md'
                         : 'bg-white/5 border-white/10 text-slate-400 hover:text-white'
                     }`}
                   >
-                    {mm} mm Bed {mm === 3 ? '(Standard)' : mm === 4.5 ? '(Medium)' : '(Heavy)'}
+                    {mm} mm {mm === 3 ? '(Std)' : mm === 4.5 ? '(Med)' : '(Hvy)'}
                   </button>
                 ))}
               </div>
@@ -216,15 +216,15 @@ export function AdhesiveCalculator() {
           </div>
 
           {/* Right Result Card: Recommended Formulation & Bags (5 cols) */}
-          <div className="lg:col-span-5 bg-gradient-to-br from-brand-navy via-[#0C2A48] to-brand-darkNavy border-2 border-brand-teal/40 rounded-3xl p-6 sm:p-8 shadow-2xl relative">
+          <div className="lg:col-span-5 bg-gradient-to-br from-brand-navy via-[#0C2A48] to-brand-darkNavy border-2 border-brand-teal/40 rounded-3xl p-4 sm:p-6 lg:p-8 shadow-2xl relative">
             <div className="corner-bracket-tl" />
             <div className="corner-bracket-br" />
 
-            <div className="text-center pb-6 border-b border-white/10">
-              <span className="text-[10px] font-mono uppercase tracking-widest px-3 py-1 rounded-full bg-brand-teal/20 text-brand-teal font-bold border border-brand-teal/30">
+            <div className="text-center pb-5 sm:pb-6 border-b border-white/10">
+              <span className="text-[9px] sm:text-[10px] font-mono uppercase tracking-widest px-2.5 sm:px-3 py-1 rounded-full bg-brand-teal/20 text-brand-teal font-bold border border-brand-teal/30">
                 RECOMMENDED FORMULATION
               </span>
-              <h3 className="text-2xl font-black text-white mt-3 font-display">
+              <h3 className="text-xl sm:text-2xl font-black text-white mt-2.5 sm:mt-3 font-display">
                 {selectedSubstrate.recommendedProduct}
               </h3>
               <p className="text-xs text-brand-teal font-mono mt-1 font-semibold">
@@ -233,17 +233,17 @@ export function AdhesiveCalculator() {
             </div>
 
             {/* Big Stat Requirement */}
-            <div className="my-6 p-5 rounded-2xl bg-white/5 border border-white/10 text-center">
+            <div className="my-5 sm:my-6 p-4 sm:p-5 rounded-2xl bg-white/5 border border-white/10 text-center">
               <div className="text-xs text-slate-300 font-mono uppercase tracking-wider">
                 Estimated Material Quantity
               </div>
-              <div className="text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-brand-teal to-white my-1 font-display">
+              <div className="text-3xl sm:text-4xl lg:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-brand-teal to-white my-1 font-display">
                 {recommendedBags}{' '}
-                <span className="text-xl font-bold text-slate-300">
+                <span className="text-base sm:text-xl font-bold text-slate-300">
                   {selectedSubstrateId === 'wet-area-pools' ? 'Kits' : 'Bags (20kg)'}
                 </span>
               </div>
-              <div className="text-[11px] text-slate-400 font-mono">
+              <div className="text-[10px] sm:text-[11px] text-slate-400 font-mono">
                 Includes +5% site cutting & wastage allowance
               </div>
             </div>

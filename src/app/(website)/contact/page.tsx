@@ -78,7 +78,7 @@ export default async function ContactPage() {
           {/* Left Column: Contact Cards */}
           <div className="lg:col-span-5 space-y-6">
             {/* Primary Brand Office Card */}
-            <div className="bg-white rounded-3xl p-7 border border-slate-200/80 shadow-industrial space-y-5">
+            <div className="bg-white rounded-3xl p-5 sm:p-7 border border-slate-200/80 shadow-industrial space-y-4 sm:space-y-5">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-brand-navy text-white text-xs font-bold uppercase">
                 <Building2 className="w-3.5 h-3.5 text-brand-teal" />
                 Brand Corporate Office
@@ -98,7 +98,7 @@ export default async function ContactPage() {
                   <MapPin className="w-5 h-5 text-brand-teal shrink-0 mt-0.5" />
                   <div>
                     <span className="font-semibold text-brand-darkNavy block">Registered Address</span>
-                    <span>{address}</span>
+                    <span className="break-words">{address}</span>
                   </div>
                 </div>
 
@@ -132,12 +132,12 @@ export default async function ContactPage() {
               </div>
 
               {/* Direct Buttons */}
-              <div className="grid grid-cols-2 gap-3 pt-2">
+              <div className="grid grid-cols-2 gap-2.5 sm:gap-3 pt-2">
                 <a
                   href={`tel:${cleanPhone}`}
-                  className="flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-brand-navy hover:bg-brand-darkNavy text-white font-bold text-xs transition-colors"
+                  className="flex items-center justify-center gap-1.5 sm:gap-2 py-2.5 sm:py-3 px-3 sm:px-4 rounded-xl bg-brand-navy hover:bg-brand-darkNavy active:scale-95 text-white font-bold text-xs transition-transform"
                 >
-                  <Phone className="w-4 h-4 text-brand-teal" />
+                  <Phone className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-brand-teal" />
                   Call Direct
                 </a>
 
@@ -145,16 +145,16 @@ export default async function ContactPage() {
                   href={`https://wa.me/91${cleanWa.replace(/^91/, '')}?text=Hello%20Manoj%20Prajapat%2C%20I%20am%20enquiring%20about%20RockHold%20construction%20chemicals`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs transition-colors shadow-md"
+                  className="flex items-center justify-center gap-1.5 sm:gap-2 py-2.5 sm:py-3 px-3 sm:px-4 rounded-xl bg-emerald-600 hover:bg-emerald-700 active:scale-95 text-white font-bold text-xs transition-transform shadow-md"
                 >
-                  <MessageSquare className="w-4 h-4" />
+                  <MessageSquare className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                   WhatsApp
                 </a>
               </div>
             </div>
 
             {/* Separate Manufacturer Details Card */}
-            <div className="bg-brand-darkNavy text-white rounded-3xl p-7 border border-brand-teal/30 shadow-2xl space-y-4">
+            <div className="bg-brand-darkNavy text-white rounded-3xl p-5 sm:p-7 border border-brand-teal/30 shadow-2xl space-y-4">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-brand-teal/20 text-brand-teal text-xs font-bold uppercase tracking-wider">
                 <Factory className="w-3.5 h-3.5" />
                 Manufacturing Unit
@@ -194,10 +194,10 @@ export default async function ContactPage() {
         </div>
 
         {/* Google Maps Embed Section */}
-        <div className="mt-14 bg-white rounded-3xl p-4 sm:p-6 border border-slate-200/80 shadow-industrial space-y-4">
-          <div className="flex items-center justify-between px-2">
+        <div className="mt-10 sm:mt-14 bg-white rounded-3xl p-4 sm:p-6 border border-slate-200/80 shadow-industrial space-y-4">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 px-1 sm:px-2">
             <div>
-              <h3 className="text-lg font-bold text-brand-darkNavy">
+              <h3 className="text-base sm:text-lg font-bold text-brand-darkNavy">
                 Office Location Map – Sardarshahr, Rajasthan
               </h3>
               <p className="text-xs text-slate-500">
@@ -208,13 +208,13 @@ export default async function ContactPage() {
               href="https://maps.google.com/?q=Sardarshahr+Rajasthan+331403"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-xs font-bold text-brand-teal hover:underline"
+              className="text-xs font-bold text-brand-teal hover:underline self-start sm:self-auto"
             >
               Open in Google Maps &rarr;
             </a>
           </div>
 
-          <div className="w-full h-80 sm:h-96 rounded-2xl overflow-hidden border border-slate-200 relative bg-slate-100">
+          <div className="w-full h-72 sm:h-96 rounded-2xl overflow-hidden border border-slate-200 relative bg-slate-100">
             <iframe
               src={mapEmbed}
               width="100%"

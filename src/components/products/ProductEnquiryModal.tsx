@@ -73,25 +73,25 @@ export function ProductEnquiryModal({
 
   return (
     <AnimatePresence>
-      <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
+      <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/60 backdrop-blur-sm overflow-y-auto">
         <motion.div
           initial={{ opacity: 0, scale: 0.95, y: 15 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.95, y: 15 }}
-          className="bg-white rounded-3xl shadow-2xl border border-slate-100 max-w-lg w-full overflow-hidden relative"
+          className="bg-white rounded-3xl shadow-2xl border border-slate-100 max-w-lg w-full max-h-[90vh] overflow-y-auto relative my-auto"
         >
           {/* Header */}
-          <div className="bg-brand-navy p-6 text-white relative">
+          <div className="bg-brand-navy p-4 sm:p-6 text-white relative">
             <button
               onClick={onClose}
-              className="absolute top-5 right-5 p-1 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors"
+              className="absolute top-4 right-4 sm:top-5 sm:right-5 p-1.5 rounded-full bg-white/10 hover:bg-white/20 active:scale-95 text-white transition-colors"
             >
-              <X className="w-5 h-5" />
+              <X className="w-4 h-4 sm:w-5 sm:h-5" />
             </button>
-            <div className="text-xs font-bold uppercase tracking-wider text-brand-teal mb-1">
+            <div className="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-brand-teal mb-1">
               Quick Product Enquiry
             </div>
-            <h3 className="text-xl font-bold text-white font-display">
+            <h3 className="text-lg sm:text-xl font-bold text-white font-display">
               {product.name}
             </h3>
             <p className="text-xs text-slate-300 mt-1">
@@ -100,20 +100,20 @@ export function ProductEnquiryModal({
           </div>
 
           {/* Form Content */}
-          <div className="p-6">
+          <div className="p-4 sm:p-6">
             {submitted ? (
-              <div className="text-center py-10 space-y-3">
-                <CheckCircle2 className="w-16 h-16 text-emerald-500 mx-auto animate-bounce" />
-                <h4 className="text-xl font-bold text-brand-darkNavy">
+              <div className="text-center py-8 sm:py-10 space-y-3">
+                <CheckCircle2 className="w-14 h-14 sm:w-16 sm:h-16 text-emerald-500 mx-auto animate-bounce" />
+                <h4 className="text-lg sm:text-xl font-bold text-brand-darkNavy">
                   Enquiry Submitted Successfully!
                 </h4>
-                <p className="text-sm text-slate-500 max-w-sm mx-auto">
+                <p className="text-xs sm:text-sm text-slate-500 max-w-sm mx-auto">
                   Thank you for your interest in {product.name}. Our technical representative will reach out to you within 24 hours.
                 </p>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-4">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <form onSubmit={handleSubmit} className="space-y-3.5 sm:space-y-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                   <Input
                     label="Your Name *"
                     required
@@ -131,7 +131,7 @@ export function ProductEnquiryModal({
                   />
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                   <Input
                     label="Email Address *"
                     type="email"
@@ -156,12 +156,13 @@ export function ProductEnquiryModal({
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                 />
 
-                <div className="pt-2 flex items-center justify-end gap-3">
+                <div className="pt-2 flex flex-col-reverse sm:flex-row items-stretch sm:items-center justify-end gap-2 sm:gap-3">
                   <Button
                     type="button"
                     variant="ghost"
                     size="md"
                     onClick={onClose}
+                    className="w-full sm:w-auto"
                   >
                     Cancel
                   </Button>
@@ -170,6 +171,7 @@ export function ProductEnquiryModal({
                     variant="secondary"
                     size="md"
                     isLoading={submitting}
+                    className="w-full sm:w-auto"
                   >
                     <Send className="w-4 h-4 mr-1.5" />
                     Submit Product Enquiry

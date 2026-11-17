@@ -48,17 +48,17 @@ export function ProductFilterList({
   return (
     <div className="space-y-10">
       {/* Search & Filter Control Bar */}
-      <div className="bg-white rounded-2xl p-4 sm:p-6 shadow-industrial border border-slate-200/80 space-y-4">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+      <div className="bg-white rounded-2xl p-3.5 sm:p-6 shadow-industrial border border-slate-200/80 space-y-3 sm:space-y-4">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-3 sm:gap-4">
           {/* Instant Search Input */}
           <div className="relative w-full md:max-w-md">
-            <Search className="w-5 h-5 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
+            <Search className="w-4 h-4 sm:w-5 sm:h-5 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
             <input
               type="text"
               placeholder="Search by product name, specification, code..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-10 pr-10 py-3 rounded-xl border border-slate-300 text-sm focus:outline-none focus:border-brand-teal focus:ring-2 focus:ring-brand-teal/20"
+              className="w-full pl-9 sm:pl-10 pr-9 sm:pr-10 py-2.5 sm:py-3 rounded-xl border border-slate-300 text-xs sm:text-sm focus:outline-none focus:border-brand-teal focus:ring-2 focus:ring-brand-teal/20"
             />
             {searchQuery && (
               <button
@@ -78,10 +78,10 @@ export function ProductFilterList({
         </div>
 
         {/* Category Filter Pills */}
-        <div className="flex items-center gap-2 overflow-x-auto pb-1 scrollbar-none pt-2 border-t border-slate-100">
+        <div className="flex items-center gap-1.5 sm:gap-2 overflow-x-auto pb-1 scrollbar-none pt-2 border-t border-slate-100">
           <button
             onClick={() => setSelectedCategory('all')}
-            className={`px-4 py-2 rounded-xl text-xs font-bold whitespace-nowrap transition-all ${
+            className={`px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl text-xs font-bold whitespace-nowrap transition-all ${
               selectedCategory === 'all'
                 ? 'bg-brand-navy text-white shadow-md'
                 : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
@@ -100,7 +100,7 @@ export function ProductFilterList({
               <button
                 key={cat.id}
                 onClick={() => setSelectedCategory(cat.slug)}
-                className={`px-4 py-2 rounded-xl text-xs font-bold whitespace-nowrap transition-all ${
+                className={`px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl text-xs font-bold whitespace-nowrap transition-all ${
                   isSelected
                     ? 'bg-brand-teal text-white shadow-md'
                     : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
@@ -115,7 +115,7 @@ export function ProductFilterList({
 
       {/* Products Grid */}
       {filteredProducts.length > 0 ? (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 lg:gap-8">
           {filteredProducts.map((product) => (
             <ProductCard
               key={product.id}

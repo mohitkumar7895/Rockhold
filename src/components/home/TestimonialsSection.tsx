@@ -38,23 +38,23 @@ export function TestimonialsSection({ testimonials }: TestimonialsSectionProps) 
   const displayList = (testimonials && testimonials.length > 0 ? testimonials : fallbackList).slice(0, 3);
 
   return (
-    <section className="py-20 bg-brand-lightBg relative overflow-hidden">
+    <section className="py-14 sm:py-20 bg-brand-lightBg relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        <div className="text-center max-w-3xl mx-auto mb-14">
+        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-navy/10 text-brand-navy text-xs font-bold uppercase tracking-wider mb-2">
             <ShieldCheck className="w-3.5 h-3.5 text-brand-teal" />
             Industry Trust
           </div>
-          <h2 className="text-3xl sm:text-4xl font-black text-brand-darkNavy tracking-tight font-display">
+          <h2 className="text-2xl sm:text-4xl font-black text-brand-darkNavy tracking-tight font-display">
             Endorsed by Architects & Applicators
           </h2>
-          <p className="mt-2 text-sm text-slate-600">
+          <p className="mt-2 text-xs sm:text-sm text-slate-600">
             Real feedback from civil contractors, architects, and building material distributors using RockHold daily.
           </p>
         </div>
 
         {/* Testimonials 3-Card Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
           {displayList.map((item, idx) => (
             <motion.div
               key={item.id}
@@ -62,7 +62,7 @@ export function TestimonialsSection({ testimonials }: TestimonialsSectionProps) 
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.35, delay: idx * 0.1 }}
-              className="bg-white rounded-2xl p-7 border border-slate-200/80 shadow-industrial hover:shadow-industrial-lg transition-all duration-300 flex flex-col justify-between relative"
+              className="bg-white rounded-2xl p-5 sm:p-7 border border-slate-200/80 shadow-industrial hover:shadow-industrial-lg transition-all duration-300 flex flex-col justify-between relative"
             >
               <Quote className="w-10 h-10 text-brand-teal/20 absolute top-6 right-6 pointer-events-none" />
 

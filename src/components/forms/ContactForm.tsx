@@ -80,10 +80,10 @@ export function ContactForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="bg-white rounded-3xl p-6 sm:p-10 border border-slate-200/80 shadow-industrial space-y-5"
+      className="bg-white rounded-3xl p-4 sm:p-8 lg:p-10 border border-slate-200/80 shadow-industrial space-y-4 sm:space-y-5"
     >
-      <div className="border-b border-slate-100 pb-4">
-        <h3 className="text-xl sm:text-2xl font-bold text-brand-darkNavy font-display">
+      <div className="border-b border-slate-100 pb-3 sm:pb-4">
+        <h3 className="text-lg sm:text-2xl font-bold text-brand-darkNavy font-display">
           Business & Dealership Enquiry Form
         </h3>
         <p className="text-xs sm:text-sm text-slate-500 mt-1">

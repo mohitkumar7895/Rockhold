@@ -59,24 +59,24 @@ export function CategoryShowcase({ categories }: CategoryShowcaseProps) {
   ];
 
   return (
-    <section className="py-24 bg-brand-lightBg relative overflow-hidden">
+    <section className="py-14 sm:py-24 bg-brand-lightBg relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-16">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-navy/10 text-brand-navy font-mono text-xs font-bold uppercase tracking-wider mb-3">
             <span className="w-2 h-2 rounded-full bg-brand-teal" />
             <span>Product Classifications</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-brand-darkNavy tracking-tight font-display">
+          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black text-brand-darkNavy tracking-tight font-display">
             Engineered Formulations by Application
           </h2>
-          <p className="mt-3 text-sm sm:text-base text-slate-600 leading-relaxed max-w-2xl mx-auto">
+          <p className="mt-3 text-xs sm:text-base text-slate-600 leading-relaxed max-w-2xl mx-auto">
             Formulated specifically to endure Indian climate dynamics, severe thermal expansion, and demanding architectural specifications.
           </p>
         </div>
 
         {/* 4 Category Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
           {categoryHighlights.map((cat, index) => {
             const Icon = cat.icon;
             return (
@@ -87,7 +87,7 @@ export function CategoryShowcase({ categories }: CategoryShowcaseProps) {
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: index * 0.1 }}
                 whileHover={{ y: -6, scale: 1.01 }}
-                className="group relative bg-white rounded-3xl border border-slate-200/90 shadow-industrial hover:shadow-industrial-lg hover:border-brand-teal/50 transition-all duration-300 flex flex-col justify-between overflow-hidden p-6"
+                className="group relative bg-white rounded-3xl border border-slate-200/90 shadow-industrial hover:shadow-industrial-lg hover:border-brand-teal/50 transition-all duration-300 flex flex-col justify-between overflow-hidden p-5 sm:p-6"
               >
                 {/* Corner brackets */}
                 <div className="corner-bracket-tl opacity-0 group-hover:opacity-100 transition-opacity" />

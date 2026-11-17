@@ -237,7 +237,7 @@ export default async function BlogPostPage({ params }: BlogPageProps) {
               </span>
             </div>
 
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-brand-darkNavy tracking-tight font-display leading-[1.15]">
+            <h1 className="text-2xl sm:text-4xl lg:text-5xl font-black text-brand-darkNavy tracking-tight font-display leading-[1.2] sm:leading-[1.15]">
               {post.title}
             </h1>
 
@@ -258,7 +258,7 @@ export default async function BlogPostPage({ params }: BlogPageProps) {
 
           {/* Featured Cover Image */}
           {post.featured_image && (
-            <div className="relative rounded-3xl overflow-hidden aspect-[16/9] mb-10 shadow-2xl border-4 border-white bg-slate-900">
+            <div className="relative rounded-3xl overflow-hidden aspect-[16/9] mb-8 sm:mb-10 shadow-2xl border-2 sm:border-4 border-white bg-slate-900">
               <img
                 src={post.featured_image}
                 alt={post.title}
@@ -268,9 +268,9 @@ export default async function BlogPostPage({ params }: BlogPageProps) {
           )}
 
           {/* Main Article Body Box */}
-          <div className="bg-white rounded-3xl p-6 sm:p-10 border border-slate-200/90 shadow-industrial space-y-6">
+          <div className="bg-white rounded-3xl p-4 sm:p-8 lg:p-10 border border-slate-200/90 shadow-industrial space-y-5 sm:space-y-6">
             {/* Excerpt Lead */}
-            <p className="text-base sm:text-lg font-medium text-slate-800 leading-relaxed italic border-l-4 border-brand-teal pl-4 py-1 bg-brand-teal/5 rounded-r-xl">
+            <p className="text-sm sm:text-lg font-medium text-slate-800 leading-relaxed italic border-l-4 border-brand-teal pl-3 sm:pl-4 py-1 bg-brand-teal/5 rounded-r-xl">
               {post.excerpt}
             </p>
 
@@ -280,13 +280,13 @@ export default async function BlogPostPage({ params }: BlogPageProps) {
             </div>
 
             {/* Direct Project Consultation Callout */}
-            <div className="mt-12 p-6 sm:p-8 rounded-3xl bg-gradient-to-br from-brand-navy via-brand-darkNavy to-[#041322] text-white flex flex-col sm:flex-row items-center justify-between gap-6 shadow-xl relative overflow-hidden">
+            <div className="mt-8 sm:mt-12 p-4 sm:p-6 lg:p-8 rounded-3xl bg-gradient-to-br from-brand-navy via-brand-darkNavy to-[#041322] text-white flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5 sm:gap-6 shadow-xl relative overflow-hidden">
               <div className="absolute top-0 right-0 w-64 h-64 bg-brand-teal/15 rounded-full blur-3xl pointer-events-none" />
               <div className="relative z-10 space-y-2">
-                <span className="text-[10px] font-mono font-bold uppercase tracking-widest px-2.5 py-0.5 rounded bg-brand-teal/20 text-brand-teal border border-brand-teal/30">
+                <span className="text-[9px] sm:text-[10px] font-mono font-bold uppercase tracking-widest px-2.5 py-0.5 rounded bg-brand-teal/20 text-brand-teal border border-brand-teal/30">
                   TECHNICAL SUPPORT & SUPPLY
                 </span>
-                <h3 className="text-xl font-bold font-display">
+                <h3 className="text-lg sm:text-xl font-bold font-display">
                   Require Project Specification Support?
                 </h3>
                 <p className="text-xs text-slate-300 max-w-md">
@@ -294,12 +294,12 @@ export default async function BlogPostPage({ params }: BlogPageProps) {
                 </p>
               </div>
 
-              <div className="relative z-10 shrink-0">
+              <div className="relative z-10 shrink-0 w-full sm:w-auto">
                 <a
                   href={waLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-xl bg-[#25D366] hover:bg-[#20b858] text-white font-bold text-xs shadow-lg transition-all hover:scale-105"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl bg-[#25D366] hover:bg-[#20b858] text-white font-bold text-xs shadow-lg active:scale-95 transition-transform"
                 >
                   <PhoneCall className="w-4 h-4" />
                   <span>WhatsApp Consultation</span>

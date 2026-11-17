@@ -49,11 +49,11 @@ export function AdminSidebar({
         {/* Brand Header */}
         <div className="p-6 border-b border-white/10 flex items-center justify-between">
           <Link href="/admin/dashboard" className="flex items-center gap-3">
-            <div className="w-9 h-9 bg-white/10 rounded-xl p-1.5 flex items-center justify-center border border-white/20">
+            <div className="w-9 h-9 rounded-xl flex items-center justify-center shrink-0">
               <img
-                src="/images/logo/rockhold-mark.png"
+                src="/images/logo/rockhold-mark.jpg"
                 alt="RockHold"
-                className="w-full h-full object-contain"
+                className="w-full h-full object-contain rounded-lg"
               />
             </div>
             <div>

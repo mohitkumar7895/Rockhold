@@ -18,48 +18,48 @@ import {
 
 export function ManufacturingIntro() {
   return (
-    <section className="py-24 bg-white relative overflow-hidden">
+    <section className="py-14 sm:py-24 bg-white relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           {/* Left Column: Visual Showcase (5 cols) */}
           <div className="lg:col-span-5 relative">
             <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-slate-100 group">
               <img
                 src="/images/gallery/concrete-waterproofing-application.jpg"
                 alt="RockHold Industrial Plant & Quality Standards"
-                className="w-full h-[460px] object-cover group-hover:scale-105 transition-transform duration-700"
+                className="w-full h-[360px] sm:h-[460px] object-cover group-hover:scale-105 transition-transform duration-700"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-brand-darkNavy/95 via-brand-darkNavy/40 to-transparent" />
 
-              <div className="absolute bottom-6 left-6 right-6 text-white space-y-2">
-                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-teal text-white font-mono text-[10px] font-bold uppercase tracking-wider">
-                  <Factory className="w-3.5 h-3.5" />
+              <div className="absolute bottom-4 sm:bottom-6 left-4 sm:left-6 right-4 sm:right-6 text-white space-y-1.5 sm:space-y-2">
+                <div className="inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-1 rounded-full bg-brand-teal text-white font-mono text-[9px] sm:text-[10px] font-bold uppercase tracking-wider">
+                  <Factory className="w-3 sm:w-3.5 h-3 sm:h-3.5" />
                   <span>MANUFACTURING PARTNER</span>
                 </div>
-                <h4 className="text-xl font-bold font-display">
+                <h4 className="text-lg sm:text-xl font-bold font-display">
                   Kritika Enterprises Plant
                 </h4>
-                <div className="flex items-center gap-1.5 text-xs text-slate-300 font-mono">
-                  <MapPin className="w-3.5 h-3.5 text-brand-teal shrink-0" />
-                  <span>Khata No. 287, Khl. No. 662, Beekamsara, Churu (Raj.) – 331403</span>
+                <div className="flex items-start gap-1.5 text-[11px] sm:text-xs text-slate-300 font-mono">
+                  <MapPin className="w-3.5 h-3.5 text-brand-teal shrink-0 mt-0.5" />
+                  <span className="break-words">Khata No. 287, Khl. No. 662, Beekamsara, Churu (Raj.) – 331403</span>
                 </div>
-                <div className="flex items-center gap-1.5 text-xs text-brand-teal font-mono">
+                <div className="flex items-center gap-1.5 text-[11px] sm:text-xs text-brand-teal font-mono">
                   <Mail className="w-3.5 h-3.5 shrink-0" />
-                  <span>kritikaenterprises.sales@gmail.com</span>
+                  <span className="truncate">kritikaenterprises.sales@gmail.com</span>
                 </div>
               </div>
             </div>
 
-            {/* Floating Quality Stamp */}
-            <div className="absolute -top-5 -right-5 bg-white rounded-3xl p-4 shadow-2xl border border-slate-100 flex items-center gap-3">
-              <div className="w-12 h-12 rounded-2xl bg-brand-teal/15 text-brand-teal flex items-center justify-center font-black text-xl font-display">
+            {/* Floating Quality Stamp - Fixed Responsive Positioning */}
+            <div className="absolute -top-3 right-3 sm:-top-5 sm:-right-5 bg-white rounded-2xl sm:rounded-3xl p-2.5 sm:p-4 shadow-2xl border border-slate-100 flex items-center gap-2 sm:gap-3">
+              <div className="w-9 h-9 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-brand-teal/15 text-brand-teal flex items-center justify-center font-black text-base sm:text-xl font-display">
                 ISO
               </div>
               <div>
-                <div className="text-xs font-black text-brand-darkNavy font-display">
+                <div className="text-[11px] sm:text-xs font-black text-brand-darkNavy font-display">
                   9001 : 2015
                 </div>
-                <div className="text-[10px] text-slate-500 font-mono">
+                <div className="text-[9px] sm:text-[10px] text-slate-500 font-mono">
                   QMS Certified Audit
                 </div>
               </div>
@@ -67,13 +67,13 @@ export function ManufacturingIntro() {
           </div>
 
           {/* Right Column: Narrative & Pillars (7 cols) */}
-          <div className="lg:col-span-7 space-y-6">
+          <div className="lg:col-span-7 space-y-5 sm:space-y-6">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-navy/10 text-brand-navy font-mono text-xs font-bold uppercase tracking-wider">
               <ShieldCheck className="w-3.5 h-3.5 text-brand-teal" />
               <span>Plant Capabilities & Quality Audit</span>
             </div>
 
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-brand-darkNavy tracking-tight font-display">
+            <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black text-brand-darkNavy tracking-tight font-display">
               Uncompromising Quality From Raw Minerals to Finished Pack
             </h2>
 

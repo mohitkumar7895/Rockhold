@@ -237,7 +237,7 @@ export function Footer() {
               </div>
               <div className="text-xs text-slate-300 flex items-start gap-1.5">
                 <MapPin className="w-3.5 h-3.5 text-brand-teal shrink-0 mt-0.5" />
-                <span>{settings.office_address || 'Shivani Bass, Ward No. 2, Sardarshahr, Rajasthan â€“ 331403'}</span>
+                <span>{settings.office_address || 'Shivani Bass, Ward No. 2, Sardarshahr, Rajasthan – 331403'}</span>
               </div>
               <div className="text-xs text-slate-300 flex items-center gap-1.5">
                 <Phone className="w-3.5 h-3.5 text-brand-teal shrink-0" />
@@ -267,7 +267,7 @@ export function Footer() {
               </div>
               <div className="text-[11px] text-slate-400 leading-snug">
                 {settings.manufacturer_address ||
-                  'Khata No. 287, Khl. No. 662, Beekamsara, Churu, Rajasthan â€“ 331403'}
+                  'Khata No. 287, Khl. No. 662, Beekamsara, Churu, Rajasthan – 331403'}
               </div>
               <div className="text-[11px] text-slate-400">
                 Email: {settings.manufacturer_email || 'kritikaenterprises.sales@gmail.com'}
@@ -278,10 +278,10 @@ export function Footer() {
 
         {/* Bottom Bar */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-400 gap-4">
-          <div>
+          <div className="text-center sm:text-left">
             &copy; {new Date().getFullYear()} RockHold Construction Chemicals. All Rights Reserved.
           </div>
-          <div className="flex items-center gap-6">
+          <div className="flex flex-wrap items-center justify-center sm:justify-start gap-3 sm:gap-6">
             <span className="flex items-center gap-1 text-slate-400">
               <span className="w-2 h-2 rounded-full bg-emerald-500" /> Proudly Made in India
             </span>

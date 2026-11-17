@@ -76,20 +76,20 @@ export function ProductDetailView({
         </nav>
 
         {/* Main Product Hero Grid */}
-        <div className="bg-white rounded-3xl p-6 sm:p-10 border border-slate-200/80 shadow-industrial grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12">
+        <div className="bg-white rounded-3xl p-4 sm:p-8 lg:p-10 border border-slate-200/80 shadow-industrial grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
           {/* Left Column: Image Stage & Gallery (5 cols) */}
           <div className="lg:col-span-5 space-y-4">
-            <div className="relative h-96 sm:h-[420px] bg-gradient-to-b from-slate-50 to-slate-100 rounded-2xl p-8 flex items-center justify-center border border-slate-200/70 shadow-inner overflow-hidden">
+            <div className="relative h-72 sm:h-96 lg:h-[420px] bg-gradient-to-b from-slate-50 to-slate-100 rounded-2xl p-6 sm:p-8 flex items-center justify-center border border-slate-200/70 shadow-inner overflow-hidden">
               {product.is_featured ? (
-                <div className="absolute top-4 left-4 z-10">
-                  <span className="text-xs font-bold px-3 py-1 rounded-full bg-brand-teal text-white shadow-sm">
+                <div className="absolute top-3.5 left-3.5 sm:top-4 sm:left-4 z-10">
+                  <span className="text-[10px] sm:text-xs font-bold px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full bg-brand-teal text-white shadow-sm">
                     FEATURED
                   </span>
                 </div>
               ) : null}
 
-              <div className="absolute top-4 right-4 z-10">
-                <span className="text-[11px] font-bold px-2.5 py-1 rounded-md bg-brand-navy text-white shadow-sm">
+              <div className="absolute top-3.5 right-3.5 sm:top-4 sm:right-4 z-10">
+                <span className="text-[10px] sm:text-[11px] font-bold px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-md bg-brand-navy text-white shadow-sm">
                   ISO 9001:2015
                 </span>
               </div>
@@ -101,7 +101,7 @@ export function ProductDetailView({
                   className="max-h-full max-w-full object-contain filter drop-shadow-2xl transition-transform duration-300 hover:scale-105"
                 />
               ) : (
-                <Package className="w-20 h-20 text-slate-300" />
+                <Package className="w-16 h-16 sm:w-20 sm:h-20 text-slate-300" />
               )}
             </div>
 
@@ -259,17 +259,17 @@ export function ProductDetailView({
         </div>
 
         {/* Benefits & Applications Section */}
-        <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="mt-8 sm:mt-12 grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
           {/* Benefits */}
-          <div className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/80 shadow-industrial space-y-4">
-            <h3 className="text-xl font-bold text-brand-darkNavy font-display flex items-center gap-2">
-              <Sparkles className="w-5 h-5 text-brand-teal" />
+          <div className="bg-white rounded-3xl p-5 sm:p-8 border border-slate-200/80 shadow-industrial space-y-4">
+            <h3 className="text-lg sm:text-xl font-bold text-brand-darkNavy font-display flex items-center gap-2">
+              <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 text-brand-teal" />
               Key Benefits & Features
             </h3>
             {product.benefits && product.benefits.length > 0 ? (
-              <ul className="space-y-3">
+              <ul className="space-y-2.5 sm:space-y-3">
                 {product.benefits.map((b, i) => (
-                  <li key={i} className="flex items-start gap-3 text-sm text-slate-700">
+                  <li key={i} className="flex items-start gap-2.5 sm:gap-3 text-xs sm:text-sm text-slate-700">
                     <CheckCircle2 className="w-4 h-4 text-brand-teal shrink-0 mt-0.5" />
                     <span>{b.benefit}</span>
                   </li>
@@ -281,15 +281,15 @@ export function ProductDetailView({
           </div>
 
           {/* Applications */}
-          <div className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/80 shadow-industrial space-y-4">
-            <h3 className="text-xl font-bold text-brand-darkNavy font-display flex items-center gap-2">
-              <Layers className="w-5 h-5 text-brand-teal" />
+          <div className="bg-white rounded-3xl p-5 sm:p-8 border border-slate-200/80 shadow-industrial space-y-4">
+            <h3 className="text-lg sm:text-xl font-bold text-brand-darkNavy font-display flex items-center gap-2">
+              <Layers className="w-4 h-4 sm:w-5 sm:h-5 text-brand-teal" />
               Recommended Applications
             </h3>
             {product.applications && product.applications.length > 0 ? (
-              <ul className="space-y-3">
+              <ul className="space-y-2.5 sm:space-y-3">
                 {product.applications.map((a, i) => (
-                  <li key={i} className="flex items-start gap-3 text-sm text-slate-700">
+                  <li key={i} className="flex items-start gap-2.5 sm:gap-3 text-xs sm:text-sm text-slate-700">
                     <CheckCircle2 className="w-4 h-4 text-brand-teal shrink-0 mt-0.5" />
                     <span>{a.application}</span>
                   </li>
@@ -303,41 +303,41 @@ export function ProductDetailView({
 
         {/* Technical Specifications Table */}
         {product.specifications && product.specifications.length > 0 && (
-          <div className="mt-12 bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/80 shadow-industrial space-y-6">
-            <div className="flex items-center justify-between">
-              <h3 className="text-xl font-bold text-brand-darkNavy font-display flex items-center gap-2">
-                <FileText className="w-5 h-5 text-brand-teal" />
+          <div className="mt-8 sm:mt-12 bg-white rounded-3xl p-5 sm:p-8 border border-slate-200/80 shadow-industrial space-y-5 sm:space-y-6">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5">
+              <h3 className="text-lg sm:text-xl font-bold text-brand-darkNavy font-display flex items-center gap-2">
+                <FileText className="w-4 h-4 sm:w-5 sm:h-5 text-brand-teal" />
                 Technical Specifications & Standards
               </h3>
               {product.datasheet_url && (
                 <a
                   href={product.datasheet_url}
                   download
-                  className="text-xs font-bold text-brand-teal hover:text-brand-tealDark flex items-center gap-1"
+                  className="text-xs font-bold text-brand-teal hover:text-brand-tealDark flex items-center gap-1 self-start sm:self-auto"
                 >
                   <Download className="w-3.5 h-3.5" /> Download PDF Datasheet
                 </a>
               )}
             </div>
 
-            <div className="overflow-x-auto">
-              <table className="w-full text-left border-collapse">
+            <div className="overflow-x-auto -mx-3 sm:mx-0">
+              <table className="w-full text-left border-collapse min-w-[320px]">
                 <thead>
-                  <tr className="border-b-2 border-brand-navy/10 bg-slate-50 text-xs font-bold uppercase tracking-wider text-slate-700">
-                    <th className="py-3 px-4">Parameter / Property</th>
-                    <th className="py-3 px-4">Specification / Certified Value</th>
+                  <tr className="border-b-2 border-brand-navy/10 bg-slate-50 text-[11px] sm:text-xs font-bold uppercase tracking-wider text-slate-700">
+                    <th className="py-2.5 sm:py-3 px-3 sm:px-4">Parameter / Property</th>
+                    <th className="py-2.5 sm:py-3 px-3 sm:px-4">Specification / Certified Value</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-slate-100 text-sm">
+                <tbody className="divide-y divide-slate-100 text-xs sm:text-sm">
                   {product.specifications.map((spec, idx) => (
                     <tr
                       key={idx}
                       className={idx % 2 === 0 ? 'bg-white' : 'bg-slate-50/50'}
                     >
-                      <td className="py-3 px-4 font-semibold text-slate-700">
+                      <td className="py-2.5 sm:py-3 px-3 sm:px-4 font-semibold text-slate-700">
                         {spec.spec_key}
                       </td>
-                      <td className="py-3 px-4 text-brand-navy font-medium">
+                      <td className="py-2.5 sm:py-3 px-3 sm:px-4 text-brand-navy font-medium">
                         {spec.spec_value}
                       </td>
                     </tr>

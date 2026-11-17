@@ -83,7 +83,7 @@ export function HeroSection() {
             </div>
 
             {/* Main Headline */}
-            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-[1.12] font-display">
+            <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[1.15] sm:leading-[1.12] font-display">
               Strong Bonds.{' '}
               <span className="block mt-1 sm:mt-2 text-transparent bg-clip-text bg-gradient-to-r from-brand-teal via-[#5EE2EE] to-white">
                 Superior Performance.
@@ -91,17 +91,17 @@ export function HeroSection() {
             </h1>
 
             {/* Clean, Readable Value Proposition */}
-            <p className="text-sm sm:text-base lg:text-lg text-slate-300 max-w-2xl mx-auto lg:mx-0 font-normal leading-relaxed">
+            <p className="text-xs sm:text-base lg:text-lg text-slate-300 max-w-2xl mx-auto lg:mx-0 font-normal leading-relaxed">
               High-performance polymer-modified tile adhesives, impervious 3-component epoxy grouts, and advanced structural waterproofing compounds engineered for long-lasting structural durability.
             </p>
 
             {/* High-Converting Action CTAs */}
-            <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3 sm:gap-4 pt-2">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center lg:justify-start gap-2.5 sm:gap-4 pt-2">
               {/* Primary: Explore Products */}
               <Link
                 href="/products"
                 prefetch={true}
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 py-3.5 sm:py-4 rounded-xl bg-brand-teal hover:bg-brand-tealDark active:scale-95 text-white font-bold text-sm sm:text-base shadow-industrial hover:shadow-industrial-glow transition-transform duration-75 cursor-pointer group"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 sm:px-7 py-3 sm:py-4 rounded-xl bg-brand-teal hover:bg-brand-tealDark active:scale-95 text-white font-bold text-xs sm:text-base shadow-industrial hover:shadow-industrial-glow transition-transform duration-75 cursor-pointer group"
               >
                 <span>Explore Products</span>
                 <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
@@ -114,7 +114,7 @@ export function HeroSection() {
                   e.preventDefault();
                   document.getElementById('calculator')?.scrollIntoView({ behavior: 'smooth' });
                 }}
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 py-3.5 sm:py-4 rounded-xl bg-white/10 hover:bg-white/20 active:scale-95 text-white font-semibold text-sm sm:text-base border border-white/20 backdrop-blur-md transition-transform duration-75 cursor-pointer group"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 sm:px-6 py-3 sm:py-4 rounded-xl bg-white/10 hover:bg-white/20 active:scale-95 text-white font-semibold text-xs sm:text-base border border-white/20 backdrop-blur-md transition-transform duration-75 cursor-pointer group"
               >
                 <Calculator className="w-4 h-4 sm:w-5 sm:h-5 text-brand-teal group-hover:rotate-12 transition-transform" />
                 <span>Calculate Bags Needed</span>
@@ -123,43 +123,43 @@ export function HeroSection() {
               {/* Tertiary: Quick Phone / WhatsApp Consultation */}
               <a
                 href={`tel:${cleanPhone}`}
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3.5 sm:py-4 rounded-xl bg-white/5 hover:bg-white/10 active:scale-95 text-slate-300 hover:text-white font-medium text-sm sm:text-base border border-white/10 transition-transform duration-75 cursor-pointer"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-4 sm:px-5 py-3 sm:py-4 rounded-xl bg-white/5 hover:bg-white/10 active:scale-95 text-slate-300 hover:text-white font-medium text-xs sm:text-base border border-white/10 transition-transform duration-75 cursor-pointer"
               >
-                <PhoneCall className="w-4 h-4 text-brand-teal" />
+                <PhoneCall className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-brand-teal" />
                 <span>Call Manoj Prajapat</span>
               </a>
             </div>
 
             {/* Clean Key Performance Pillars */}
-            <div className="grid grid-cols-3 gap-3 sm:gap-6 pt-6 border-t border-white/10 max-w-lg mx-auto lg:mx-0">
+            <div className="grid grid-cols-3 gap-2 sm:gap-6 pt-5 sm:pt-6 border-t border-white/10 max-w-lg mx-auto lg:mx-0">
               <div className="text-center lg:text-left space-y-0.5">
-                <div className="text-xl sm:text-2xl lg:text-3xl font-black text-white font-display">
+                <div className="text-lg sm:text-2xl lg:text-3xl font-black text-white font-display">
                   100%
                 </div>
-                <div className="text-[11px] sm:text-xs text-brand-teal font-semibold">
+                <div className="text-[10px] sm:text-xs text-brand-teal font-semibold">
                   Zero Debonding
                 </div>
-                <div className="text-[10px] text-slate-400">Reliable Grip</div>
+                <div className="text-[9px] sm:text-[10px] text-slate-400">Reliable Grip</div>
               </div>
 
               <div className="text-center lg:text-left space-y-0.5">
-                <div className="text-xl sm:text-2xl lg:text-3xl font-black text-brand-teal font-display">
+                <div className="text-lg sm:text-2xl lg:text-3xl font-black text-brand-teal font-display">
                   IS 15477
                 </div>
-                <div className="text-[11px] sm:text-xs text-white font-semibold">
+                <div className="text-[10px] sm:text-xs text-white font-semibold">
                   Lab Certified
                 </div>
-                <div className="text-[10px] text-slate-400">Type 1, 2 & 3</div>
+                <div className="text-[9px] sm:text-[10px] text-slate-400">Type 1, 2 & 3</div>
               </div>
 
               <div className="text-center lg:text-left space-y-0.5">
-                <div className="text-xl sm:text-2xl lg:text-3xl font-black text-white font-display">
+                <div className="text-lg sm:text-2xl lg:text-3xl font-black text-white font-display">
                   20+ Yrs
                 </div>
-                <div className="text-[11px] sm:text-xs text-brand-teal font-semibold">
+                <div className="text-[10px] sm:text-xs text-brand-teal font-semibold">
                   Durability
                 </div>
-                <div className="text-[10px] text-slate-400">Field Proven</div>
+                <div className="text-[9px] sm:text-[10px] text-slate-400">Field Proven</div>
               </div>
             </div>
           </motion.div>
@@ -187,34 +187,34 @@ export function HeroSection() {
               <div className="absolute -inset-4 bg-gradient-to-tr from-brand-teal/30 via-brand-navy/60 to-transparent rounded-3xl blur-2xl opacity-70 pointer-events-none" />
 
               {/* Clean Glassmorphic Stage Box */}
-              <div className="relative rounded-3xl bg-gradient-to-b from-white/10 to-white/5 border border-white/20 p-6 sm:p-8 backdrop-blur-xl shadow-2xl overflow-hidden">
+              <div className="relative rounded-3xl bg-gradient-to-b from-white/10 to-white/5 border border-white/20 p-4 sm:p-6 lg:p-8 backdrop-blur-xl shadow-2xl overflow-hidden">
                 {/* Clean Stage Top Header */}
-                <div className="flex items-center justify-between pb-4 mb-4 border-b border-white/10">
+                <div className="flex items-center justify-between pb-3 sm:pb-4 mb-3 sm:mb-4 border-b border-white/10">
                   <div className="flex items-center gap-2">
                     <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                    <span className="text-xs font-bold text-white uppercase tracking-wider font-display">
+                    <span className="text-[11px] sm:text-xs font-bold text-white uppercase tracking-wider font-display">
                       Flagship Formulation
                     </span>
                   </div>
-                  <span className="text-[10px] font-mono font-bold px-2.5 py-1 rounded-md bg-brand-teal/20 text-brand-teal border border-brand-teal/40">
+                  <span className="text-[9px] sm:text-[10px] font-mono font-bold px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-md bg-brand-teal/20 text-brand-teal border border-brand-teal/40">
                     TYPE 2 ADHESIVE
                   </span>
                 </div>
 
                 {/* Product Image Stage */}
-                <div className="relative flex flex-col items-center justify-center py-4 sm:py-6">
+                <div className="relative flex flex-col items-center justify-center py-2 sm:py-6">
                   {/* Subtle pedestal glow */}
-                  <div className="absolute w-48 h-48 rounded-full bg-brand-teal/20 blur-3xl pointer-events-none" />
+                  <div className="absolute w-44 h-44 sm:w-48 sm:h-48 rounded-full bg-brand-teal/20 blur-3xl pointer-events-none" />
 
                   <img
                     src="/images/products/r-21-tile-adhesive.png"
                     alt="RockHold R-21 Tile Adhesive"
-                    className="relative z-10 max-h-56 sm:max-h-64 lg:max-h-72 w-auto object-contain filter drop-shadow-[0_20px_35px_rgba(0,0,0,0.85)] animate-float-slow"
+                    className="relative z-10 max-h-48 sm:max-h-64 lg:max-h-72 w-auto object-contain filter drop-shadow-[0_20px_35px_rgba(0,0,0,0.85)] animate-float-slow"
                   />
 
                   {/* Product Title & Info */}
-                  <div className="relative z-10 mt-4 text-center">
-                    <h2 className="text-lg sm:text-xl font-black text-white font-display">
+                  <div className="relative z-10 mt-3 sm:mt-4 text-center">
+                    <h2 className="text-base sm:text-xl font-black text-white font-display">
                       RockHold R-21 Tile Adhesive
                     </h2>
                     <p className="text-xs sm:text-sm text-slate-300 mt-1 max-w-xs mx-auto">
@@ -224,9 +224,9 @@ export function HeroSection() {
                 </div>
 
                 {/* Clean Feature Pills */}
-                <div className="grid grid-cols-2 gap-2.5 pt-4 border-t border-white/10">
-                  <div className="bg-white/5 rounded-xl p-2.5 text-center border border-white/10">
-                    <div className="text-[10px] text-slate-400 uppercase tracking-wide">
+                <div className="grid grid-cols-2 gap-2 sm:gap-2.5 pt-3 sm:pt-4 border-t border-white/10">
+                  <div className="bg-white/5 rounded-xl p-2 sm:p-2.5 text-center border border-white/10">
+                    <div className="text-[9px] sm:text-[10px] text-slate-400 uppercase tracking-wide">
                       Pack Size
                     </div>
                     <div className="text-xs sm:text-sm font-bold text-white mt-0.5">
@@ -234,8 +234,8 @@ export function HeroSection() {
                     </div>
                   </div>
 
-                  <div className="bg-white/5 rounded-xl p-2.5 text-center border border-white/10">
-                    <div className="text-[10px] text-slate-400 uppercase tracking-wide">
+                  <div className="bg-white/5 rounded-xl p-2 sm:p-2.5 text-center border border-white/10">
+                    <div className="text-[9px] sm:text-[10px] text-slate-400 uppercase tracking-wide">
                       Tensile Strength
                     </div>
                     <div className="text-xs sm:text-sm font-bold text-brand-teal mt-0.5">
@@ -245,9 +245,9 @@ export function HeroSection() {
                 </div>
 
                 {/* Bottom Signature Mascot Badge */}
-                <div className="mt-4 pt-3 border-t border-white/10 flex items-center justify-between">
-                  <div className="flex items-center gap-2.5">
-                    <div className="w-8 h-8 rounded-lg bg-white/10 p-1 shrink-0 overflow-hidden border border-brand-teal/40">
+                <div className="mt-3 sm:mt-4 pt-3 border-t border-white/10 flex flex-wrap sm:flex-nowrap items-center justify-between gap-2">
+                  <div className="flex items-center gap-2 sm:gap-2.5">
+                    <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-white/10 p-1 shrink-0 overflow-hidden border border-brand-teal/40">
                       <img
                         src="/images/hero/crocodile-mascot.png"
                         alt="RockHold Mascot"
@@ -255,10 +255,10 @@ export function HeroSection() {
                       />
                     </div>
                     <div>
-                      <div className="text-[11px] font-bold text-white">
+                      <div className="text-[10px] sm:text-[11px] font-bold text-white">
                         Crocodile Power Strength
                       </div>
-                      <div className="text-[9px] text-brand-teal uppercase tracking-wider">
+                      <div className="text-[8px] sm:text-[9px] text-brand-teal uppercase tracking-wider">
                         High Polymer Mechanical Anchor
                       </div>
                     </div>
@@ -266,7 +266,7 @@ export function HeroSection() {
 
                   <Link
                     href="/products/r-21-tile-adhesive"
-                    className="text-xs font-semibold text-brand-teal hover:text-white transition-colors flex items-center gap-1"
+                    className="text-xs font-semibold text-brand-teal hover:text-white transition-colors flex items-center gap-1 self-end sm:self-center ml-auto sm:ml-0"
                   >
                     <span>View Specs</span>
                     <ArrowRight className="w-3.5 h-3.5" />

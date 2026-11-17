@@ -28,12 +28,12 @@ export function GalleryGrid({ initialItems }: GalleryGridProps) {
   return (
     <div className="space-y-8">
       {/* Category Tabs */}
-      <div className="flex items-center justify-center gap-2 overflow-x-auto pb-2 scrollbar-none">
+      <div className="flex items-center justify-start sm:justify-center gap-1.5 sm:gap-2 overflow-x-auto pb-2 px-1 scrollbar-none">
         {categories.map((cat) => (
           <button
             key={cat.id}
             onClick={() => setSelectedCategory(cat.id)}
-            className={`px-5 py-2.5 rounded-full text-xs font-bold transition-all whitespace-nowrap ${
+            className={`px-3.5 sm:px-5 py-2 sm:py-2.5 rounded-full text-xs font-bold transition-all whitespace-nowrap active:scale-95 ${
               selectedCategory === cat.id
                 ? 'bg-brand-navy text-white shadow-md'
                 : 'bg-white text-slate-600 hover:bg-slate-100 border border-slate-200'
@@ -112,9 +112,10 @@ export function GalleryGrid({ initialItems }: GalleryGridProps) {
             >
               <button
                 onClick={() => setLightboxImage(null)}
-                className="absolute top-4 right-4 z-10 p-2.5 rounded-full bg-black/60 text-white hover:bg-black/90 transition-colors"
+                className="absolute top-2 right-2 sm:top-4 sm:right-4 z-10 p-2 sm:p-2.5 rounded-full bg-black/60 text-white hover:bg-black/90 active:scale-95 transition-transform touch-manipulation"
+                aria-label="Close Preview"
               >
-                <X className="w-6 h-6" />
+                <X className="w-5 h-5 sm:w-6 sm:h-6" />
               </button>
               <img
                 src={lightboxImage.image_url}

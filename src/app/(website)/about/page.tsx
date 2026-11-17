@@ -32,7 +32,7 @@ export default function AboutPage() {
     },
     {
       title: 'Precision Formulation',
-      desc: 'Formulated specifically to endure extreme Indian climatesâ€”from scorching dry desert heat to torrential monsoon moisture.',
+      desc: 'Formulated specifically to endure extreme Indian climates — from scorching dry desert heat to torrential monsoon moisture.',
       icon: FlaskConical,
     },
     {
@@ -112,15 +112,15 @@ export default function AboutPage() {
                 />
               </div>
 
-              {/* Floating Badge */}
-              <div className="absolute -bottom-6 -left-6 bg-brand-darkNavy text-white p-5 rounded-2xl shadow-xl border border-brand-teal/40 max-w-xs">
-                <div className="text-xs font-bold text-brand-teal uppercase tracking-wider">
+              {/* Floating Badge - Fixed Mobile Positioning */}
+              <div className="absolute -bottom-3 left-3 sm:-bottom-6 sm:-left-6 bg-brand-darkNavy text-white p-3.5 sm:p-5 rounded-2xl shadow-xl border border-brand-teal/40 max-w-[85%] sm:max-w-xs">
+                <div className="text-[10px] sm:text-xs font-bold text-brand-teal uppercase tracking-wider">
                   Brand Promise
                 </div>
-                <div className="text-sm font-bold mt-1">
+                <div className="text-xs sm:text-sm font-bold mt-1">
                   &ldquo;Strong Bonds. Superior Performance.&rdquo;
                 </div>
-                <div className="text-[11px] text-slate-300 mt-0.5">
+                <div className="text-[10px] sm:text-[11px] text-slate-300 mt-0.5">
                   Symbolized by our Crocodile Grip mascot.
                 </div>
               </div>
@@ -194,7 +194,7 @@ export default function AboutPage() {
                 <div className="pt-2 space-y-2 text-xs text-slate-300">
                   <div className="flex items-start gap-2">
                     <MapPin className="w-4 h-4 text-brand-teal shrink-0 mt-0.5" />
-                    <span>Khata No. 287, Khl. No. 662, Beekamsara, Churu, Rajasthan â€“ 331403</span>
+                    <span>Khata No. 287, Khl. No. 662, Beekamsara, Churu, Rajasthan – 331403</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <Mail className="w-4 h-4 text-brand-teal shrink-0" />
@@ -227,7 +227,7 @@ export default function AboutPage() {
                   </div>
                   <div className="flex items-start gap-2">
                     <MapPin className="w-4 h-4 text-brand-navy shrink-0 mt-0.5" />
-                    <span>Shivani Bass, Ward No. 2, Sardarshahr, Rajasthan â€“ 331403</span>
+                    <span>Shivani Bass, Ward No. 2, Sardarshahr, Rajasthan – 331403</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <Phone className="w-4 h-4 text-brand-navy shrink-0" />
