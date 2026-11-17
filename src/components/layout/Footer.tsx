@@ -77,150 +77,185 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Column 2: Quick Links (2 cols) */}
-          <div className="lg:col-span-2 space-y-4">
-            <h4 className="text-sm font-bold text-white uppercase tracking-wider border-l-2 border-brand-teal pl-2.5">
-              Quick Links
-            </h4>
-            <ul className="space-y-2.5 text-sm">
-              <li>
-                <Link
-                  href="/"
-                  className="hover:text-brand-teal transition-colors flex items-center gap-1.5"
-                >
-                  <ArrowRight className="w-3 h-3 text-brand-teal" /> Home
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/about"
-                  className="hover:text-brand-teal transition-colors flex items-center gap-1.5"
-                >
-                  <ArrowRight className="w-3 h-3 text-brand-teal" /> About Us
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/products"
-                  className="hover:text-brand-teal transition-colors flex items-center gap-1.5"
-                >
-                  <ArrowRight className="w-3 h-3 text-brand-teal" /> All Products
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/blog"
-                  className="hover:text-brand-teal transition-colors flex items-center gap-1.5"
-                >
-                  <ArrowRight className="w-3 h-3 text-brand-teal" /> Technical Blog
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/gallery"
-                  className="hover:text-brand-teal transition-colors flex items-center gap-1.5"
-                >
-                  <ArrowRight className="w-3 h-3 text-brand-teal" /> Project Gallery
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/contact"
-                  className="hover:text-brand-teal transition-colors flex items-center gap-1.5"
-                >
-                  <ArrowRight className="w-3 h-3 text-brand-teal" /> Contact Us
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/admin/login"
-                  className="hover:text-brand-teal transition-colors flex items-center gap-1.5 text-xs text-slate-400 pt-2"
-                >
-                  <ExternalLink className="w-3 h-3" /> Admin Portal
-                </Link>
-              </li>
-            </ul>
-          </div>
+          {/* Columns 2 & 3: Quick Links & Product Solutions (Placed Side-by-Side "ke samne") */}
+          <div className="lg:col-span-5 grid grid-cols-1 sm:grid-cols-2 gap-8">
+            {/* Quick Links */}
+            <div className="space-y-4">
+              <h4 className="text-sm font-bold text-white uppercase tracking-wider border-l-2 border-brand-teal pl-2.5">
+                Quick Links
+              </h4>
+              <ul className="space-y-2.5 text-xs sm:text-sm">
+                <li>
+                  <Link
+                    href="/"
+                    prefetch={true}
+                    className="hover:text-brand-teal transition-colors flex items-center gap-1.5"
+                  >
+                    <ArrowRight className="w-3 h-3 text-brand-teal shrink-0" />
+                    <span>Home</span>
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/about"
+                    prefetch={true}
+                    className="hover:text-brand-teal transition-colors flex items-center gap-1.5"
+                  >
+                    <ArrowRight className="w-3 h-3 text-brand-teal shrink-0" />
+                    <span>About Us</span>
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/products"
+                    prefetch={true}
+                    className="hover:text-brand-teal transition-colors flex items-center gap-1.5"
+                  >
+                    <ArrowRight className="w-3 h-3 text-brand-teal shrink-0" />
+                    <span>All Products</span>
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/blog"
+                    prefetch={true}
+                    className="hover:text-brand-teal transition-colors flex items-center gap-1.5"
+                  >
+                    <ArrowRight className="w-3 h-3 text-brand-teal shrink-0" />
+                    <span>Technical Blog</span>
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/gallery"
+                    prefetch={true}
+                    className="hover:text-brand-teal transition-colors flex items-center gap-1.5"
+                  >
+                    <ArrowRight className="w-3 h-3 text-brand-teal shrink-0" />
+                    <span>Project Gallery</span>
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/contact"
+                    prefetch={true}
+                    className="hover:text-brand-teal transition-colors flex items-center gap-1.5"
+                  >
+                    <ArrowRight className="w-3 h-3 text-brand-teal shrink-0" />
+                    <span>Contact Us</span>
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/admin/login"
+                    prefetch={true}
+                    className="hover:text-brand-teal transition-colors flex items-center gap-1.5 text-xs text-slate-400 pt-1"
+                  >
+                    <ExternalLink className="w-3 h-3 shrink-0" />
+                    <span>Admin Portal</span>
+                  </Link>
+                </li>
+              </ul>
+            </div>
 
-          {/* Column 3: Product Range (3 cols) */}
-          <div className="lg:col-span-3 space-y-4">
-            <h4 className="text-sm font-bold text-white uppercase tracking-wider border-l-2 border-brand-teal pl-2.5">
-              Product Solutions
-            </h4>
-            <ul className="space-y-2 text-sm">
-              <li>
-                <Link
-                  href="/products/r-11-tile-adhesive"
-                  className="hover:text-brand-teal transition-colors block"
-                >
-                  R-11 Tile Adhesive (Type 1)
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/products/r-21-tile-adhesive"
-                  className="hover:text-brand-teal transition-colors block"
-                >
-                  R-21 Tile Adhesive (Type 2)
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/products/r-51-tile-adhesive"
-                  className="hover:text-brand-teal transition-colors block"
-                >
-                  R-51 Tile Adhesive (Type 3)
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/products/epoxy-grout"
-                  className="hover:text-brand-teal transition-colors block"
-                >
-                  Stain-Free Epoxy Grout
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/products/tile-grout"
-                  className="hover:text-brand-teal transition-colors block"
-                >
-                  Polymer Tile Grout
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/products/r01-tile-cleaner"
-                  className="hover:text-brand-teal transition-colors block"
-                >
-                  R01 Active Tile Cleaner
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/products/tap-cleaner"
-                  className="hover:text-brand-teal transition-colors block"
-                >
-                  Eco Tap & Scale Cleaner
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/products/r301-lw-plus"
-                  className="hover:text-brand-teal transition-colors block"
-                >
-                  R301 LW+ Integral Waterproofing
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/products/r302-sbr"
-                  className="hover:text-brand-teal transition-colors block"
-                >
-                  R302 SBR Bonding Latex
-                </Link>
-              </li>
-            </ul>
+            {/* Product Solutions (Directly Facing / Side-by-Side with Quick Links) */}
+            <div className="space-y-4">
+              <h4 className="text-sm font-bold text-white uppercase tracking-wider border-l-2 border-brand-teal pl-2.5">
+                Product Solutions
+              </h4>
+              <ul className="space-y-2 text-xs sm:text-sm">
+                <li>
+                  <Link
+                    href="/products/r-11-tile-adhesive"
+                    prefetch={true}
+                    className="hover:text-brand-teal transition-colors flex items-center gap-1.5"
+                  >
+                    <ArrowRight className="w-3 h-3 text-brand-teal shrink-0" />
+                    <span>R-11 Tile Adhesive (Type 1)</span>
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/products/r-21-tile-adhesive"
+                    prefetch={true}
+                    className="hover:text-brand-teal transition-colors flex items-center gap-1.5"
+                  >
+                    <ArrowRight className="w-3 h-3 text-brand-teal shrink-0" />
+                    <span>R-21 Tile Adhesive (Type 2)</span>
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/products/r-51-tile-adhesive"
+                    prefetch={true}
+                    className="hover:text-brand-teal transition-colors flex items-center gap-1.5"
+                  >
+                    <ArrowRight className="w-3 h-3 text-brand-teal shrink-0" />
+                    <span>R-51 Tile Adhesive (Type 3)</span>
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/products/epoxy-grout"
+                    prefetch={true}
+                    className="hover:text-brand-teal transition-colors flex items-center gap-1.5"
+                  >
+                    <ArrowRight className="w-3 h-3 text-brand-teal shrink-0" />
+                    <span>Stain-Free Epoxy Grout</span>
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/products/tile-grout"
+                    prefetch={true}
+                    className="hover:text-brand-teal transition-colors flex items-center gap-1.5"
+                  >
+                    <ArrowRight className="w-3 h-3 text-brand-teal shrink-0" />
+                    <span>Polymer Tile Grout</span>
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/products/r01-tile-cleaner"
+                    prefetch={true}
+                    className="hover:text-brand-teal transition-colors flex items-center gap-1.5"
+                  >
+                    <ArrowRight className="w-3 h-3 text-brand-teal shrink-0" />
+                    <span>R01 Active Tile Cleaner</span>
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/products/tap-cleaner"
+                    prefetch={true}
+                    className="hover:text-brand-teal transition-colors flex items-center gap-1.5"
+                  >
+                    <ArrowRight className="w-3 h-3 text-brand-teal shrink-0" />
+                    <span>Eco Tap & Scale Cleaner</span>
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/products/r301-lw-plus"
+                    prefetch={true}
+                    className="hover:text-brand-teal transition-colors flex items-center gap-1.5"
+                  >
+                    <ArrowRight className="w-3 h-3 text-brand-teal shrink-0" />
+                    <span>R301 LW+ Integral Waterproofing</span>
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/products/r302-sbr"
+                    prefetch={true}
+                    className="hover:text-brand-teal transition-colors flex items-center gap-1.5"
+                  >
+                    <ArrowRight className="w-3 h-3 text-brand-teal shrink-0" />
+                    <span>R302 SBR Bonding Latex</span>
+                  </Link>
+                </li>
+              </ul>
+            </div>
           </div>
 
           {/* Column 4: Contact & Manufacturing Entity (3 cols) */}
