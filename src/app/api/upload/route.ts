@@ -113,6 +113,13 @@ export async function POST(request: NextRequest) {
         ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
       `);
 
+      // Safely ensure image columns are LONGTEXT to support both URLs and Base64
+      try {
+        await query('ALTER TABLE products MODIFY COLUMN featured_image LONGTEXT NULL');
+        await query('ALTER TABLE product_images MODIFY COLUMN image_url LONGTEXT NOT NULL');
+        await query('ALTER TABLE gallery MODIFY COLUMN image_url LONGTEXT NOT NULL');
+      } catch (alterErr) {}
+
       await query(
         `INSERT INTO uploaded_files (filename, original_name, mime_type, size, data)
          VALUES (?, ?, ?, ?, ?)

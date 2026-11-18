@@ -79,6 +79,10 @@ export function CategoryShowcase({ categories }: CategoryShowcaseProps) {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
           {categoryHighlights.map((cat, index) => {
             const Icon = cat.icon;
+            const dbCategory = categories?.find((c) => c.slug === cat.slug);
+            const categoryImage = dbCategory?.image || cat.image;
+            const categoryName = dbCategory?.name || cat.name;
+            const categoryDesc = dbCategory?.description || cat.desc;
             return (
               <motion.div
                 key={cat.slug}
@@ -106,7 +110,7 @@ export function CategoryShowcase({ categories }: CategoryShowcaseProps) {
 
                   {/* Title & Subtitle */}
                   <h3 className="text-xl font-bold text-brand-darkNavy group-hover:text-brand-teal transition-colors font-display">
-                    {cat.name}
+                    {categoryName}
                   </h3>
                   <div className="text-xs font-semibold text-brand-navy/70 mt-1 font-sans">
                     {cat.subtitle}
@@ -114,15 +118,15 @@ export function CategoryShowcase({ categories }: CategoryShowcaseProps) {
 
                   {/* Description */}
                   <p className="text-xs text-slate-500 mt-2.5 leading-relaxed">
-                    {cat.desc}
+                    {categoryDesc}
                   </p>
 
                   {/* Product Pack preview image with blueprint background */}
                   <div className="relative mt-6 h-48 w-full flex items-center justify-center bg-gradient-to-b from-slate-50 to-slate-100/80 rounded-2xl p-4 border border-slate-100 group-hover:border-brand-teal/30 transition-colors overflow-hidden">
                     <div className="absolute inset-0 blueprint-pattern opacity-10 pointer-events-none" />
                     <img
-                      src={cat.image}
-                      alt={cat.name}
+                      src={categoryImage}
+                      alt={categoryName}
                       className="max-h-full max-w-full object-contain filter drop-shadow-md group-hover:scale-105 transition-transform duration-300 relative z-10"
                     />
                   </div>

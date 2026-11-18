@@ -12,7 +12,8 @@ export async function GET(
   request: NextRequest,
   { params }: { params: { filename: string } }
 ) {
-  const filename = params.filename;
+  const rawParam = params.filename || '';
+  const filename = decodeURIComponent(rawParam.split('?')[0]);
 
   if (!filename || filename.includes('..') || filename.includes('/') || filename.includes('\\')) {
     return NextResponse.json({ error: 'Invalid filename' }, { status: 400 });

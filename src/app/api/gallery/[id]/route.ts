@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { revalidatePath } from 'next/cache';
 import { query } from '@/lib/db';
 import { getSessionAdmin } from '@/lib/auth';
 
@@ -35,6 +36,11 @@ export async function PUT(
       ]
     );
 
+    try {
+      revalidatePath('/', 'layout');
+      revalidatePath('/gallery');
+    } catch (e) {}
+
     return NextResponse.json({
       success: true,
       message: 'Gallery item updated successfully',
@@ -56,6 +62,11 @@ export async function DELETE(
 
     const id = Number(params.id);
     await query('DELETE FROM gallery WHERE id = ?', [id]);
+
+    try {
+      revalidatePath('/', 'layout');
+      revalidatePath('/gallery');
+    } catch (e) {}
 
     return NextResponse.json({
       success: true,

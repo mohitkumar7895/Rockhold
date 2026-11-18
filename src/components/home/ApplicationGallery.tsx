@@ -4,11 +4,16 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Layers, ArrowRight, Eye, Sparkles, X } from 'lucide-react';
+import { GalleryItem } from '@/types';
 
-export function ApplicationGallery() {
+interface ApplicationGalleryProps {
+  items?: GalleryItem[];
+}
+
+export function ApplicationGallery({ items }: ApplicationGalleryProps = {}) {
   const [activeImage, setActiveImage] = useState<string | null>(null);
 
-  const galleryItems = [
+  const fallbackItems = [
     {
       title: 'Modern Geometric Living Room Tiling',
       category: 'Residential Flooring',
@@ -47,6 +52,16 @@ export function ApplicationGallery() {
     },
   ];
 
+  const displayItems =
+    items && items.length > 0
+      ? items.slice(0, 6).map((it) => ({
+          title: it.title,
+          category: it.category || 'Site Showcase',
+          product: it.description || 'RockHold Chemical Application',
+          image: it.image_url,
+        }))
+      : fallbackItems;
+
   return (
     <section className="py-20 bg-white relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
@@ -76,7 +91,7 @@ export function ApplicationGallery() {
 
         {/* Gallery Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {galleryItems.map((item, idx) => (
+          {displayItems.map((item, idx) => (
             <motion.div
               key={item.title}
               initial={{ opacity: 0, y: 15 }}

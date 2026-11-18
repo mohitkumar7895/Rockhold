@@ -1,6 +1,6 @@
 import React from 'react';
 import { query } from '@/lib/db';
-import { Product, Category, Testimonial } from '@/types';
+import { Product, Category, Testimonial, GalleryItem } from '@/types';
 import { HeroSection } from '@/components/home/HeroSection';
 import { CategoryShowcase } from '@/components/home/CategoryShowcase';
 import { AdhesiveCalculator } from '@/components/home/AdhesiveCalculator';
@@ -12,11 +12,12 @@ import { ApplicationGallery } from '@/components/home/ApplicationGallery';
 import { TestimonialsSection } from '@/components/home/TestimonialsSection';
 import { EnquiryCTA } from '@/components/home/EnquiryCTA';
 
-export const revalidate = 60; // Revalidate every 60 seconds
+export const dynamic = 'force-dynamic';
+export const revalidate = 0; // Live dynamic data on every request
 
 async function getHomeData() {
   try {
-    const [productsRows, categoriesRows, testimonialsRows] = await Promise.all([
+    const [productsRows, categoriesRows, testimonialsRows, galleryRows] = await Promise.all([
       query<any[]>(`
         SELECT p.*, c.name as category_name, c.slug as category_slug
         FROM products p
@@ -35,12 +36,19 @@ async function getHomeData() {
         ORDER BY display_order ASC
         LIMIT 3
       `),
+      query<any[]>(`
+        SELECT * FROM gallery
+        WHERE is_active = 1
+        ORDER BY display_order ASC, id DESC
+        LIMIT 6
+      `),
     ]);
 
     return {
       products: productsRows as Product[],
       categories: categoriesRows as Category[],
       testimonials: testimonialsRows as Testimonial[],
+      gallery: galleryRows as GalleryItem[],
     };
   } catch (error) {
     console.error('Home data fetching error:', error);
@@ -48,17 +56,22 @@ async function getHomeData() {
       products: [],
       categories: [],
       testimonials: [],
+      gallery: [],
     };
   }
 }
 
 export default async function HomePage() {
-  const { products, categories, testimonials } = await getHomeData();
+  const { products, categories, testimonials, gallery } = await getHomeData();
+  const flagshipProduct =
+    products.find((p) => p.slug === 'r-21-tile-adhesive') ||
+    products.find((p) => p.is_featured) ||
+    products[0];
 
   return (
     <div className="flex flex-col">
       {/* 1. Hero Section */}
-      <HeroSection />
+      <HeroSection flagshipProduct={flagshipProduct} />
 
       {/* 2. Category Showcase */}
       <CategoryShowcase categories={categories} />
@@ -79,7 +92,7 @@ export default async function HomePage() {
       <ManufacturingIntro />
 
       {/* 8. Real-World Applications & Construction Gallery */}
-      <ApplicationGallery />
+      <ApplicationGallery items={gallery} />
 
       {/* 9. Industry Testimonials */}
       <TestimonialsSection testimonials={testimonials} />

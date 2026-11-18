@@ -9,7 +9,8 @@ interface ProductPageProps {
   params: { slug: string };
 }
 
-export const revalidate = 60;
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
 
 export async function generateMetadata({ params }: ProductPageProps): Promise<Metadata> {
   const { slug } = params;

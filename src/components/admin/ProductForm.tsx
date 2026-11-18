@@ -34,6 +34,7 @@ export function ProductForm({ initialData, isEdit }: ProductFormProps) {
   const [categories, setCategories] = useState<Category[]>([]);
   const [submitting, setSubmitting] = useState(false);
   const [uploadingImage, setUploadingImage] = useState(false);
+  const [uploadingGallery, setUploadingGallery] = useState(false);
 
   // Form State
   const [name, setName] = useState(initialData?.name || '');
@@ -145,7 +146,7 @@ export function ProductForm({ initialData, isEdit }: ProductFormProps) {
     }
   };
 
-  // Image Upload handler
+  // Image Upload handler for Primary Featured Pack Image
   const handleFileUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (!file) return;
@@ -168,16 +169,46 @@ export function ProductForm({ initialData, isEdit }: ProductFormProps) {
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || 'Failed to upload image');
 
-      if (!featuredImage) {
-        setFeaturedImage(data.url);
-      } else {
-        setImages((prev) => [...prev, data.url]);
-      }
-      success('Image uploaded successfully!');
+      // ALWAYS update the primary featured image
+      setFeaturedImage(data.url);
+      success('Featured pack image updated! Save product to apply changes.');
     } catch (err: any) {
       toastError(err.message || 'Image upload error');
     } finally {
       setUploadingImage(false);
+      e.target.value = '';
+    }
+  };
+
+  // Image Upload handler for Additional Gallery Photos
+  const handleGalleryUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    if (file.size > 4.5 * 1024 * 1024) {
+      toastError('Image size exceeds 4.5MB. Please select an image under 4.5MB.');
+      e.target.value = '';
+      return;
+    }
+
+    setUploadingGallery(true);
+    const formData = new FormData();
+    formData.append('file', file);
+
+    try {
+      const res = await fetch('/api/upload', {
+        method: 'POST',
+        body: formData,
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || 'Failed to upload gallery image');
+
+      setImages((prev) => [...prev, data.url]);
+      success('Photo added to gallery! Save product to apply changes.');
+    } catch (err: any) {
+      toastError(err.message || 'Gallery image upload error');
+    } finally {
+      setUploadingGallery(false);
       e.target.value = '';
     }
   };
@@ -652,7 +683,7 @@ export function ProductForm({ initialData, isEdit }: ProductFormProps) {
 
               <label className="w-full inline-flex items-center justify-center gap-2 py-2 px-3 rounded-lg border border-slate-300 hover:bg-slate-50 text-xs font-semibold text-slate-700 cursor-pointer">
                 <Upload className="w-4 h-4 text-brand-teal" />
-                <span>{uploadingImage ? 'Uploading...' : 'Upload File to Server'}</span>
+                <span>{uploadingImage ? 'Uploading...' : 'Replace Featured Pack Image'}</span>
                 <input
                   type="file"
                   accept="image/*"
@@ -661,6 +692,69 @@ export function ProductForm({ initialData, isEdit }: ProductFormProps) {
                 />
               </label>
             </div>
+          </div>
+
+          {/* Additional Gallery Photos */}
+          <div className="bg-white rounded-2xl p-6 border border-slate-200 shadow-industrial space-y-4">
+            <h4 className="text-sm font-bold text-brand-darkNavy border-b border-slate-100 pb-2 flex items-center justify-between">
+              <span>Additional Gallery Photos</span>
+              <span className="text-xs text-slate-400 font-mono">({images.length} photos)</span>
+            </h4>
+
+            {images.length > 0 ? (
+              <div className="grid grid-cols-3 gap-2.5">
+                {images.map((img, idx) => (
+                  <div
+                    key={idx}
+                    className="relative group rounded-lg overflow-hidden border border-slate-200 bg-slate-50 aspect-square flex items-center justify-center p-1"
+                  >
+                    <img
+                      src={img}
+                      alt={`Gallery ${idx + 1}`}
+                      className="max-h-full max-w-full object-contain"
+                    />
+                    <button
+                      type="button"
+                      onClick={() => setImages(images.filter((_, i) => i !== idx))}
+                      className="absolute top-1 right-1 p-1 bg-red-600 hover:bg-red-700 text-white rounded-md opacity-0 group-hover:opacity-100 transition-opacity shadow-sm"
+                      title="Remove image"
+                    >
+                      <Trash2 className="w-3 h-3" />
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        const oldFeatured = featuredImage;
+                        setFeaturedImage(img);
+                        setImages(
+                          images.map((item, i) => (i === idx ? oldFeatured : item)).filter(Boolean)
+                        );
+                        success('Set as primary featured image!');
+                      }}
+                      className="absolute bottom-1 left-1 text-[9px] font-bold bg-brand-navy/90 text-white px-1.5 py-0.5 rounded opacity-0 group-hover:opacity-100 transition-opacity shadow-sm"
+                      title="Set as featured"
+                    >
+                      Make Main
+                    </button>
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <p className="text-xs text-slate-400 text-center py-2 font-sans">
+                No additional gallery photos added yet.
+              </p>
+            )}
+
+            <label className="w-full inline-flex items-center justify-center gap-2 py-2 px-3 rounded-lg border border-dashed border-slate-300 hover:border-brand-teal hover:bg-slate-50 text-xs font-semibold text-slate-700 cursor-pointer transition-colors">
+              <Upload className="w-4 h-4 text-brand-teal" />
+              <span>{uploadingGallery ? 'Uploading photo...' : '+ Add Extra Gallery Photo'}</span>
+              <input
+                type="file"
+                accept="image/*"
+                onChange={handleGalleryUpload}
+                className="hidden"
+              />
+            </label>
           </div>
 
           {/* Technical Datasheet PDF */}

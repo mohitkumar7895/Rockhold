@@ -1,5 +1,6 @@
 export const dynamic = 'force-dynamic';
 import { NextRequest, NextResponse } from 'next/server';
+import { revalidatePath } from 'next/cache';
 import { query, withTransaction } from '@/lib/db';
 import { getSessionAdmin } from '@/lib/auth';
 import { productSchema } from '@/lib/validations';
@@ -193,6 +194,11 @@ export async function POST(request: NextRequest) {
 
       return pId;
     });
+
+    try {
+      revalidatePath('/', 'layout');
+      revalidatePath('/products');
+    } catch (e) {}
 
     return NextResponse.json({
       success: true,

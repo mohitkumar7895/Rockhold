@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { revalidatePath } from 'next/cache';
 import { query, withTransaction } from '@/lib/db';
 import { getSessionAdmin } from '@/lib/auth';
 import { productSchema } from '@/lib/validations';
@@ -200,6 +201,12 @@ export async function PUT(
       }
     });
 
+    try {
+      revalidatePath('/', 'layout');
+      revalidatePath('/products');
+      revalidatePath(`/products/${finalSlug}`);
+    } catch (e) {}
+
     return NextResponse.json({
       success: true,
       message: 'Product updated successfully',
@@ -229,6 +236,11 @@ export async function DELETE(
     }
 
     await query('DELETE FROM products WHERE id = ?', [productId]);
+
+    try {
+      revalidatePath('/', 'layout');
+      revalidatePath('/products');
+    } catch (e) {}
 
     return NextResponse.json({
       success: true,

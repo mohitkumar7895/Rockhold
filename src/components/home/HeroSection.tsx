@@ -15,8 +15,13 @@ import {
   Award,
 } from 'lucide-react';
 import { useWebsite } from '@/context/WebsiteContext';
+import { Product } from '@/types';
 
-export function HeroSection() {
+interface HeroSectionProps {
+  flagshipProduct?: Product | null;
+}
+
+export function HeroSection({ flagshipProduct }: HeroSectionProps = {}) {
   const { settings } = useWebsite();
 
   // Subtle 3D perspective tilt on mouse move
@@ -207,18 +212,20 @@ export function HeroSection() {
                   <div className="absolute w-44 h-44 sm:w-48 sm:h-48 rounded-full bg-brand-teal/20 blur-3xl pointer-events-none" />
 
                   <img
-                    src="/images/products/r-21-tile-adhesive.png"
-                    alt="RockHold R-21 Tile Adhesive"
+                    src={flagshipProduct?.featured_image || '/images/products/r-21-tile-adhesive.png'}
+                    alt={flagshipProduct?.name || 'RockHold R-21 Tile Adhesive'}
                     className="relative z-10 max-h-48 sm:max-h-64 lg:max-h-72 w-auto object-contain filter drop-shadow-[0_20px_35px_rgba(0,0,0,0.85)] animate-float-slow"
                   />
 
                   {/* Product Title & Info */}
                   <div className="relative z-10 mt-3 sm:mt-4 text-center">
                     <h2 className="text-xl sm:text-2xl font-black text-white font-display tracking-tight">
-                      RockHold R-21 Tile Adhesive
+                      {flagshipProduct?.name || 'RockHold R-21 Tile Adhesive'}
                     </h2>
                     <p className="text-xs sm:text-sm text-slate-200/90 mt-1 max-w-xs mx-auto font-sans leading-relaxed">
-                      High-polymer modified cementitious adhesive for vitrified tiles, terracotta & tile-on-tile renovation.
+                      {flagshipProduct?.tagline ||
+                        flagshipProduct?.short_description ||
+                        'High-polymer modified cementitious adhesive for vitrified tiles, terracotta & tile-on-tile renovation.'}
                     </p>
                   </div>
                 </div>
@@ -265,7 +272,7 @@ export function HeroSection() {
                   </div>
 
                   <Link
-                    href="/products/r-21-tile-adhesive"
+                    href={`/products/${flagshipProduct?.slug || 'r-21-tile-adhesive'}`}
                     className="text-xs sm:text-sm font-display font-bold text-brand-teal hover:text-white transition-colors flex items-center gap-1.5 self-end sm:self-center ml-auto sm:ml-0 group"
                   >
                     <span>View Specs</span>

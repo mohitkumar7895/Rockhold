@@ -1,5 +1,6 @@
 export const dynamic = 'force-dynamic';
 import { NextRequest, NextResponse } from 'next/server';
+import { revalidatePath } from 'next/cache';
 import { query } from '@/lib/db';
 import { getSessionAdmin } from '@/lib/auth';
 
@@ -63,6 +64,11 @@ export async function POST(request: NextRequest) {
         is_active === false ? 0 : 1,
       ]
     );
+
+    try {
+      revalidatePath('/', 'layout');
+      revalidatePath('/gallery');
+    } catch (e) {}
 
     return NextResponse.json({
       success: true,
