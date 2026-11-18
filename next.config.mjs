@@ -8,6 +8,14 @@ const nextConfig = {
   experimental: {
     serverComponentsExternalPackages: ['mysql2', 'bcryptjs'],
   },
+  async rewrites() {
+    return [
+      {
+        source: '/images/uploads/:path*',
+        destination: '/api/uploads/:path*',
+      },
+    ];
+  },
 };
 
 export default nextConfig;

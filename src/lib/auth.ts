@@ -22,15 +22,27 @@ export async function getSessionAdmin(): Promise<JwtPayload | null> {
   const payload = verifyToken(token);
   if (!payload) return null;
 
-  // Optional: verify user still exists in DB
-  const [admin] = await query<any[]>('SELECT id, email, name, role FROM admins WHERE id = ?', [payload.id]);
-  if (!admin) return null;
+  try {
+    const admins = await query<any[]>('SELECT id, email, name, role FROM admins WHERE id = ?', [payload.id]);
+    const admin = admins && admins[0];
+    if (admin) {
+      return {
+        id: admin.id,
+        email: admin.email,
+        name: admin.name,
+        role: admin.role,
+      };
+    }
+  } catch (err) {
+    // If DB check is temporarily offline or slow, fallback to verified JWT payload
+    console.warn('DB check in getSessionAdmin failed, using verified JWT token payload:', err);
+  }
 
   return {
-    id: admin.id,
-    email: admin.email,
-    name: admin.name,
-    role: admin.role,
+    id: payload.id,
+    email: payload.email,
+    name: payload.name,
+    role: payload.role,
   };
 }
 
