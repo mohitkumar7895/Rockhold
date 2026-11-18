@@ -84,6 +84,12 @@ export default function AdminGalleryPage() {
     const file = e.target.files?.[0];
     if (!file) return;
 
+    if (file.size > 4.5 * 1024 * 1024) {
+      toastError('Image size exceeds 4.5MB. Please select an image under 4.5MB.');
+      e.target.value = '';
+      return;
+    }
+
     setUploading(true);
     const formData = new FormData();
     formData.append('file', file);

@@ -26,10 +26,10 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: 'No file provided' }, { status: 400 });
     }
 
-    // Validate size (max 10MB)
-    if (file.size > 10 * 1024 * 1024) {
+    // Validate size (max 4.5MB on Vercel Serverless)
+    if (file.size > 4.5 * 1024 * 1024) {
       return NextResponse.json(
-        { error: 'File exceeds 10MB size limit' },
+        { error: 'File exceeds 4.5MB upload limit. Please compress image before uploading.' },
         { status: 400 }
       );
     }
