@@ -11,8 +11,7 @@ export const metadata: Metadata = {
     'Explore high-resolution product photographs, packaging showcases, on-site tile laying demonstrations, and completed architectural projects using RockHold.',
 };
 
-export const dynamic = 'force-dynamic';
-export const revalidate = 0;
+export const revalidate = 5;
 
 async function getGalleryItems() {
   try {

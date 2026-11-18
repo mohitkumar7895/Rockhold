@@ -273,6 +273,7 @@ export function HeroSection({ flagshipProduct }: HeroSectionProps = {}) {
 
                   <Link
                     href={`/products/${flagshipProduct?.slug || 'r-21-tile-adhesive'}`}
+                    prefetch={true}
                     className="text-xs sm:text-sm font-display font-bold text-brand-teal hover:text-white transition-colors flex items-center gap-1.5 self-end sm:self-center ml-auto sm:ml-0 group"
                   >
                     <span>View Specs</span>

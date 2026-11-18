@@ -11,8 +11,7 @@ export const metadata: Metadata = {
     'Browse the full catalogue of RockHold high-performance construction chemicals: R-11, R-21, R-51 Tile Adhesives, Stain-Free Epoxy Grout, Tile Cleaner, Tap Cleaner, and R301 LW+.',
 };
 
-export const dynamic = 'force-dynamic';
-export const revalidate = 0;
+export const revalidate = 5;
 
 async function getProductsData() {
   try {

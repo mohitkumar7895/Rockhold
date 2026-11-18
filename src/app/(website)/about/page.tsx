@@ -242,7 +242,8 @@ export default function AboutPage() {
 
               <Link
                 href="/contact"
-                className="w-full inline-flex items-center justify-center gap-2 py-3 px-6 rounded-xl bg-brand-navy hover:bg-brand-darkNavy text-white font-bold text-sm transition-colors"
+                prefetch={true}
+                className="w-full inline-flex items-center justify-center gap-2 py-3 px-6 rounded-xl bg-brand-navy hover:bg-brand-darkNavy text-white font-bold text-sm transition-colors active:scale-95"
               >
                 <span>Connect with Manoj Prajapat</span>
                 <ArrowRight className="w-4 h-4" />

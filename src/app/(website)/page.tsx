@@ -12,8 +12,7 @@ import { ApplicationGallery } from '@/components/home/ApplicationGallery';
 import { TestimonialsSection } from '@/components/home/TestimonialsSection';
 import { EnquiryCTA } from '@/components/home/EnquiryCTA';
 
-export const dynamic = 'force-dynamic';
-export const revalidate = 0; // Live dynamic data on every request
+export const revalidate = 5; // Instant edge serving + automatic 5s background freshness
 
 async function getHomeData() {
   try {

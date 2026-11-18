@@ -38,9 +38,10 @@ export function FeaturedProducts({ products }: FeaturedProductsProps) {
 
           <Link
             href="/products"
+            prefetch={true}
             className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-brand-navy hover:text-brand-teal transition-colors self-start md:self-auto group active:scale-95"
           >
-            <span>View All 9 Products</span>
+            <span>View All Products</span>
             <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" />
           </Link>
         </div>
@@ -68,6 +69,7 @@ export function FeaturedProducts({ products }: FeaturedProductsProps) {
           </div>
           <Link
             href="/contact"
+            prefetch={true}
             className="w-full sm:w-auto text-center shrink-0 px-6 py-3 rounded-xl bg-brand-navy hover:bg-brand-darkNavy text-white font-bold text-xs sm:text-sm shadow-md active:scale-95 transition-transform"
           >
             Request Commercial Quote

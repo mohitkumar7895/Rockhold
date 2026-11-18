@@ -280,7 +280,7 @@ export function BlogExplorer({ initialBlogs, categories }: BlogExplorerProps) {
                   </span>
                 </div>
 
-                <Link href={`/blog/${featuredPost.slug}`} className="block group/title">
+                <Link href={`/blog/${featuredPost.slug}`} prefetch={true} className="block group/title">
                   <h2 className="text-xl sm:text-2xl lg:text-3xl font-black text-brand-darkNavy group-hover/title:text-brand-teal transition-colors font-display leading-[1.2] tracking-tight">
                     {featuredPost.title}
                   </h2>
@@ -413,7 +413,7 @@ export function BlogExplorer({ initialBlogs, categories }: BlogExplorerProps) {
                       </span>
                     </div>
 
-                    <Link href={`/blog/${post.slug}`} className="block group/link">
+                    <Link href={`/blog/${post.slug}`} prefetch={true} className="block group/link">
                       <h3 className="text-base sm:text-lg font-bold text-brand-darkNavy group-hover/link:text-brand-teal transition-colors font-display line-clamp-2 leading-snug tracking-tight">
                         {post.title}
                       </h3>

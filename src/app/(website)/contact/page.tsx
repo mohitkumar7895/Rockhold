@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     'Contact RockHold for dealership enquiries, commercial bulk orders, and architectural consultations in Sardarshahr, Churu, Rajasthan. Phone/WhatsApp: 90016 67917.',
 };
 
-export const revalidate = 60;
+export const revalidate = 5;
 
 async function getContactSettings() {
   try {

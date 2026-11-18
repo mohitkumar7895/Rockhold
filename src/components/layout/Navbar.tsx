@@ -140,6 +140,7 @@ export function Navbar() {
                   >
                     <Link
                       href={link.href}
+                      prefetch={true}
                       className={`flex items-center gap-1.5 px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
                         isActive || pathname.startsWith('/products')
                           ? 'text-white bg-white/10'
@@ -170,6 +171,7 @@ export function Navbar() {
                             </span>
                             <Link
                               href="/products"
+                              prefetch={true}
                               className="text-xs text-slate-300 hover:text-white flex items-center gap-1"
                             >
                               View All Products <ArrowRight className="w-3 h-3" />
@@ -181,6 +183,7 @@ export function Navbar() {
                               <Link
                                 key={cat.id}
                                 href={`/products?category=${cat.slug}`}
+                                prefetch={true}
                                 className="flex items-start gap-3 p-3 rounded-xl hover:bg-white/10 transition-colors group/item"
                               >
                                 <div className="w-10 h-10 rounded-lg bg-brand-navy p-1 shrink-0 border border-brand-teal/30 group-hover/item:border-brand-teal flex items-center justify-center">
@@ -208,12 +211,14 @@ export function Navbar() {
                             <>
                               <Link
                                 href="/products?category=tile-adhesives"
+                                prefetch={true}
                                 className="p-3 rounded-xl hover:bg-white/10 text-white text-sm"
                               >
                                 Tile Adhesives (R-11, R-21, R-51)
                               </Link>
                               <Link
                                 href="/products?category=grouts-joint-fillers"
+                                prefetch={true}
                                 className="p-3 rounded-xl hover:bg-white/10 text-white text-sm"
                               >
                                 Grouts & Joint Fillers (Epoxy, Tile Grout)

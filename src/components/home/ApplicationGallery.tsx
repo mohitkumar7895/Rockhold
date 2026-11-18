@@ -82,6 +82,7 @@ export function ApplicationGallery({ items }: ApplicationGalleryProps = {}) {
 
           <Link
             href="/gallery"
+            prefetch={true}
             className="inline-flex items-center gap-2 text-sm font-bold text-brand-navy hover:text-brand-teal transition-colors group"
           >
             <span>Explore Full Gallery</span>

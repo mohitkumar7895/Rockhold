@@ -9,7 +9,7 @@ interface BlogPageProps {
   params: { slug: string };
 }
 
-export const revalidate = 60;
+export const revalidate = 5;
 
 // Fallback technical articles with complete content in case database is cold/offline
 const FALLBACK_ARTICLES: Record<string, Partial<BlogPost>> = {

@@ -2,6 +2,14 @@ import mysql from 'mysql2/promise';
 
 let pool: mysql.Pool;
 
+// High-speed In-Memory Query Cache for Sub-Millisecond Database Reads
+const queryCache = new Map<string, { data: any; expiry: number }>();
+const DEFAULT_TTL_MS = 15000; // 15 seconds memory cache
+
+export function clearDbCache() {
+  queryCache.clear();
+}
+
 export function getDbPool(): mysql.Pool {
   if (!pool) {
     pool = mysql.createPool({
@@ -23,12 +31,34 @@ export function getDbPool(): mysql.Pool {
 }
 
 /**
- * Execute a parameterized query
+ * Execute a parameterized query with instant in-memory cache for SELECT reads
  */
 export async function query<T = any>(sql: string, params?: any[]): Promise<T> {
+  const isSelect = /^\s*SELECT\b/i.test(sql);
+  const cacheKey = isSelect ? `${sql.trim()}::${JSON.stringify(params || [])}` : null;
+
+  if (cacheKey && queryCache.has(cacheKey)) {
+    const cached = queryCache.get(cacheKey)!;
+    if (Date.now() < cached.expiry) {
+      return cached.data as T;
+    }
+    queryCache.delete(cacheKey);
+  }
+
   const p = getDbPool();
   try {
     const [results] = await p.execute(sql, params || []);
+
+    if (cacheKey) {
+      if (queryCache.size > 200) {
+        const firstKey = queryCache.keys().next().value;
+        if (firstKey) queryCache.delete(firstKey);
+      }
+      queryCache.set(cacheKey, { data: results, expiry: Date.now() + DEFAULT_TTL_MS });
+    } else {
+      queryCache.clear();
+    }
+
     return results as T;
   } catch (error: any) {
     console.error('Database query error:', {
@@ -44,9 +74,31 @@ export async function query<T = any>(sql: string, params?: any[]): Promise<T> {
  * Execute raw query (for queries with IN clauses or non-prepared dynamic clauses)
  */
 export async function rawQuery<T = any>(sql: string, params?: any[]): Promise<T> {
+  const isSelect = /^\s*SELECT\b/i.test(sql);
+  const cacheKey = isSelect ? `${sql.trim()}::${JSON.stringify(params || [])}` : null;
+
+  if (cacheKey && queryCache.has(cacheKey)) {
+    const cached = queryCache.get(cacheKey)!;
+    if (Date.now() < cached.expiry) {
+      return cached.data as T;
+    }
+    queryCache.delete(cacheKey);
+  }
+
   const p = getDbPool();
   try {
     const [results] = await p.query(sql, params || []);
+
+    if (cacheKey) {
+      if (queryCache.size > 200) {
+        const firstKey = queryCache.keys().next().value;
+        if (firstKey) queryCache.delete(firstKey);
+      }
+      queryCache.set(cacheKey, { data: results, expiry: Date.now() + DEFAULT_TTL_MS });
+    } else {
+      queryCache.clear();
+    }
+
     return results as T;
   } catch (error: any) {
     console.error('Database rawQuery error:', {
@@ -70,6 +122,7 @@ export async function withTransaction<T>(
   try {
     const result = await callback(conn);
     await conn.commit();
+    clearDbCache();
     return result;
   } catch (err) {
     await conn.rollback();

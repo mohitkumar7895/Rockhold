@@ -13,7 +13,7 @@ import {
 } from 'lucide-react';
 import { BlogExplorer } from '@/components/blog/BlogExplorer';
 
-export const revalidate = 60;
+export const revalidate = 5;
 
 export const metadata: Metadata = {
   title: 'Technical Knowledge Hub & Guides | RockHold Construction Chemicals',

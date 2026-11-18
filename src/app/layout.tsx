@@ -1,5 +1,7 @@
+import React, { Suspense } from 'react';
 import type { Metadata } from 'next';
 import './globals.css';
+import { RouteProgressBar } from '@/components/ui/RouteProgressBar';
 import { ToastProvider } from '@/components/ui/toast';
 import { AuthProvider } from '@/context/AuthContext';
 import { WebsiteProvider } from '@/context/WebsiteContext';
@@ -110,6 +112,9 @@ export default async function RootLayout({
         />
       </head>
       <body className="min-h-screen flex flex-col font-sans antialiased bg-white text-slate-800 selection:bg-brand-teal selection:text-white">
+        <Suspense fallback={null}>
+          <RouteProgressBar />
+        </Suspense>
         <AuthProvider>
           <WebsiteProvider initialSettings={settings} initialCategories={categories}>
             <ToastProvider>

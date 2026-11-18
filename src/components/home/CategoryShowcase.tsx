@@ -136,6 +136,7 @@ export function CategoryShowcase({ categories }: CategoryShowcaseProps) {
                 <div className="pt-5 mt-4 border-t border-slate-100">
                   <Link
                     href={`/products?category=${cat.slug}`}
+                    prefetch={true}
                     className="inline-flex items-center justify-between w-full text-xs font-bold text-brand-navy group-hover:text-brand-teal transition-colors"
                   >
                     <span>View Category Range</span>
