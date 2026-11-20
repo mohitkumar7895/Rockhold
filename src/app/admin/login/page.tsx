@@ -15,8 +15,8 @@ function LoginForm() {
   const { login } = useAuth();
   const { success, error: toastError } = useToast();
 
-  const [email, setEmail] = useState('admin@rockhold.com');
-  const [password, setPassword] = useState('Admin@123');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -79,7 +79,7 @@ function LoginForm() {
           label="Admin Email Address"
           type="email"
           required
-          placeholder="admin@rockhold.com"
+          placeholder="admin@rockhold.in"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
@@ -106,14 +106,6 @@ function LoginForm() {
           </Button>
         </div>
       </form>
-
-      {/* Preset Credentials Hint for Testing */}
-      <div className="mt-6 pt-5 border-t border-slate-100 text-center">
-        <p className="text-[11px] text-slate-400">
-          Default Credentials: <span className="font-semibold text-slate-700">admin@rockhold.com</span> /{' '}
-          <span className="font-semibold text-slate-700">Admin@123</span>
-        </p>
-      </div>
     </div>
   );
 }
