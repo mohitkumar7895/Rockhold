@@ -74,12 +74,17 @@ function LoginForm() {
       </div>
 
       {/* Form */}
-      <form onSubmit={handleSubmit} className="space-y-4">
+      <form onSubmit={handleSubmit} autoComplete="off" className="space-y-4">
+        {/* Hidden dummy fields to prevent aggressive Chrome / Edge autofill of saved personal accounts */}
+        <input type="text" name="chrome_autofill_blocker" className="hidden" style={{ display: 'none' }} tabIndex={-1} aria-hidden="true" />
+        <input type="password" name="chrome_password_blocker" className="hidden" style={{ display: 'none' }} tabIndex={-1} aria-hidden="true" />
+
         <Input
           label="Admin Email Address"
           type="email"
+          name="admin_identity_field"
           required
-          autoComplete="off"
+          autoComplete="new-password"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
@@ -87,8 +92,9 @@ function LoginForm() {
         <Input
           label="Admin Password"
           type="password"
+          name="admin_auth_pass"
           required
-          autoComplete="current-password"
+          autoComplete="new-password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
