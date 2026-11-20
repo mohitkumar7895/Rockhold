@@ -79,7 +79,7 @@ function LoginForm() {
           label="Admin Email Address"
           type="email"
           required
-          placeholder="admin@rockhold.in"
+          autoComplete="off"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
@@ -88,7 +88,7 @@ function LoginForm() {
           label="Admin Password"
           type="password"
           required
-          placeholder="••••••••"
+          autoComplete="current-password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
